@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Conheça os detalhes dos relógios Sanda Brasil.">
+  <title>Detalhes do relógio | Sanda Brasil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bentham&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#111;--paper:#f3f3f1;--line:#dededb}*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.6 'DM Sans',Arial,sans-serif}a{color:inherit}:focus-visible{outline:2px solid currentColor;outline-offset:4px}header{background:#090909;min-height:100px;display:flex;align-items:center;justify-content:center}header img{width:92px;height:90px;object-fit:contain}main{max-width:1280px;margin:auto;padding:55px 30px 100px}.back{font-size:13px;text-decoration:none}.back:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;margin-top:35px}.photo{background:var(--paper);min-height:580px;display:grid;place-items:center}.photo img{height:510px;max-width:90%;object-fit:contain;mix-blend-mode:multiply}.eyebrow{font-size:12px;letter-spacing:.15em;font-weight:600}.content h1{font:400 clamp(50px,6vw,83px)/1.05 Bentham,Georgia,serif;margin:15px 0 5px}.content p{max-width:480px}.price{font-size:24px;font-weight:600;letter-spacing:-.04em;margin:23px 0 0}.notice{border:1px solid var(--line);background:#f7f7f5;border-radius:8px;padding:18px 20px;margin:26px 0 30px}.specs{border-top:1px solid #ddd;margin-top:35px}.specs div{display:flex;justify-content:space-between;gap:30px;border-bottom:1px solid #ddd;padding:15px 0;font-size:14px}.specs span:last-child{color:#666;text-align:right}.cta{display:flex;align-items:center;justify-content:center;width:min(100%,360px);margin-top:30px;background:#111;color:white;text-decoration:none;border-radius:30px;padding:16px 25px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,opacity .2s}.cta:hover{background:#333}.cta[aria-disabled="true"]{opacity:.62;cursor:not-allowed}.feedback{min-height:22px;color:#666;font-size:13px;margin:11px 0 0}@media(max-width:750px){main{padding:35px 20px 75px}.layout{grid-template-columns:1fr;gap:30px}.photo{min-height:430px}.photo img{height:390px}}
+  </style>
+</head>
+<body>
+  <header><a href="index.html" aria-label="Sanda Brasil, início"><img src="assets/sanda-logo-transparente.png" alt="Sanda" width="1159" height="996"></a></header>
+  <main>
+    <a class="back" id="back" href="index.html#comprar">← Voltar ao modelo</a>
+    <div class="layout">
+      <div class="photo"><img id="product-image" src="assets/sanda-classic.webp" alt="Sanda Classic com pulseira preta" width="1024" height="1536"></div>
+      <div class="content">
+        <span class="eyebrow" id="model-code">MODELO 01 · SANDA BRASIL</span>
+        <h1 id="model-name">Sanda Classic</h1>
+        <p id="model-description">O clássico em couro preto.</p>
+        <div class="price" id="product-price">Preço em definição</div>
+        <div class="notice" id="checkout-notice">A ficha técnica completa deste modelo está em preparação. As medidas e características abaixo serão publicadas após confirmação.</div>
+        <div class="specs">
+          <div><span>Caixa</span><span>Dimensões em confirmação</span></div>
+          <div><span>Mostrador</span><span>Branco com algarismos romanos</span></div>
+          <div><span>Movimento</span><span>Em confirmação</span></div>
+          <div><span>Pulseira</span><span>Detalhes em confirmação</span></div>
+          <div><span>Conteúdo do pedido</span><span>Relógio e porta relógio em veludo</span></div>
+        </div>
+        <a class="cta" id="product-cta" href="index.html?modelo=classic#comprar" aria-disabled="true">Voltar à compra</a>
+        <p class="feedback" id="product-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </main>
+  <script src="store-config.js"></script>
+  <script>
+    const requestedSlug=new URLSearchParams(location.search).get('modelo');
+    const products=window.SANDA_STORE.products;
+    const item=products.find(product=>product.slug===requestedSlug)||products[0];
+    const checkoutUrl=window.SANDA_STORE.buildCheckoutUrl(item.checkoutUrl);
+    const homeUrl='index.html?modelo='+encodeURIComponent(item.slug)+'#comprar';
+    const cta=document.querySelector('#product-cta');
+    document.title=item.name+' | Sanda Brasil';
+    document.querySelector('#model-name').textContent=item.name;
+    document.querySelector('#model-code').textContent=item.code;
+    document.querySelector('#model-description').textContent=item.description;
+    document.querySelector('#product-price').textContent=window.SANDA_STORE.formatPrice(item.price);
+    document.querySelector('#product-image').src=item.images[0];
+    document.querySelector('#product-image').alt=item.imageAlt;
+    document.querySelector('#back').href=homeUrl;
+    cta.href=checkoutUrl||homeUrl;
+    cta.textContent=checkoutUrl?'Comprar agora':'Voltar à compra';
+    cta.setAttribute('aria-disabled',String(!checkoutUrl));
+    if(checkoutUrl)document.querySelector('#checkout-notice').textContent='Ao comprar, você será direcionado ao ambiente seguro da Yampi para concluir o pedido.';
+  </script>
+</body>
+</html>
