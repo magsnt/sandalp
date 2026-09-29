@@ -10,8 +10,8 @@
       description: 'O clássico em couro preto.',
       imageAlt: 'Sanda Classic com pulseira preta',
       images: ['assets/sanda-classic.webp'],
-      price: null,
-      checkoutUrl: null
+      price: 899,
+      checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/J04KTX1Z9G'
     },
     {
       slug: 'signature',
@@ -21,8 +21,8 @@
       description: 'O equilíbrio do couro marrom.',
       imageAlt: 'Sanda Signature com pulseira marrom',
       images: ['assets/sanda-signature.webp'],
-      price: null,
-      checkoutUrl: null
+      price: 949,
+      checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/37NE7BRJKB'
     },
     {
       slug: 'edition',
@@ -32,8 +32,8 @@
       description: 'A expressão do aço prateado.',
       imageAlt: 'Sanda Edition com pulseira em aço prateado',
       images: ['assets/sanda-edition.webp'],
-      price: null,
-      checkoutUrl: null
+      price: 1099,
+      checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/6DI4WBX8G1'
     }
   ];
 
