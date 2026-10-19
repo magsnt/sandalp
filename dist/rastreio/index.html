@@ -3,68 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b2220">
+  <meta name="theme-color" content="#0f3b38">
   <meta name="description" content="Acompanhe a entrega do seu relógio Sanda Brasil.">
   <title>Rastreio | Sanda Brasil</title>
+  <link rel="icon" type="image/png" href="/assets/sanda-logo-transparente.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bentham&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/product.css">
-  <style>
-    .tracking{width:min(100%,720px);margin:auto;padding:90px var(--edge) 120px;text-align:center}
-    .tracking h1{font:400 clamp(46px,6vw,72px)/1.02 var(--serif);margin:16px 0 18px}
-    .tracking p{color:#5c5c58;margin:0 auto 34px;max-width:520px}
-    .tracking-form{display:flex;gap:10px;max-width:520px;margin:auto}
-    .tracking-form input{flex:1;min-width:0;border:1px solid #cfcfca;border-radius:3px;padding:16px 18px;font:inherit;text-transform:uppercase}
-    .tracking-form .buy-button{width:auto;min-width:150px}
-    .tracking-help{margin-top:42px;font-size:13px;color:#777}
-    .tracking-help a{text-decoration:underline;text-underline-offset:3px}
-    @media(max-width:650px){.tracking{padding-top:60px}.tracking-form{flex-direction:column}.tracking-form .buy-button{width:100%}}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bentham&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
 </head>
-<body>
-  <div class="announcement" aria-label="Condições especiais">
-    <div class="announcement-track">
-      <div class="announcement-group"><span>Frete grátis para todo o país</span><span>Até 3x sem juros</span><span>10% OFF na primeira compra</span></div>
-      <div class="announcement-group" aria-hidden="true"><span>Frete grátis para todo o país</span><span>Até 3x sem juros</span><span>10% OFF na primeira compra</span></div>
-    </div>
-  </div>
-  <header class="site-header">
-    <div class="header-inner">
-      <nav class="desktop-nav" aria-label="Navegação principal"><a href="/#colecao">Relógios</a><a href="/#historia">História</a></nav>
-      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="tracking-mobile-menu">Menu</button>
-      <a class="site-logo" href="/" aria-label="Sanda Brasil, início"><img src="/assets/sanda-logo-transparente.png" alt="Sanda"></a>
-      <nav class="desktop-nav right" aria-label="Atalhos"><a href="/#universo">Sobre nós</a><a href="/rastreio/" aria-current="page">Rastreio</a></nav>
-      <nav class="mobile-menu" id="tracking-mobile-menu" data-mobile-menu aria-label="Menu móvel"><a href="/#colecao">Relógios</a><a href="/#historia">História</a><a href="/#universo">Sobre nós</a><a href="/rastreio/">Rastreio</a></nav>
-    </div>
-  </header>
-
-  <main class="tracking">
-    <span class="eyebrow">ACOMPANHE SEU PEDIDO</span>
+<body class="page-top">
+  <main class="simple">
+    <span class="eyebrow">Acompanhe seu pedido</span>
     <h1>Onde está o seu Sanda?</h1>
     <p>Digite o código de rastreio que enviamos por e-mail após a postagem do pedido.</p>
-    <form class="tracking-form" id="tracking-form">
+    <form class="track-form" id="tracking-form">
       <label class="sr-only" for="tracking-code">Código de rastreio</label>
-      <input id="tracking-code" name="codigo" type="text" placeholder="Ex.: AA123456789BR" autocomplete="off" required>
-      <button class="buy-button" type="submit">Rastrear</button>
+      <input id="tracking-code" type="text" placeholder="Ex.: AA123456789BR" autocomplete="off" required>
+      <button class="btn btn--dark" type="submit">Rastrear</button>
     </form>
-    <p class="tracking-help">Ainda não recebeu o código? Ele chega por e-mail assim que o pedido é postado. Se precisar, fale com a gente em <a href="/#contato">Contato</a>.</p>
+    <small>Ainda não recebeu o código? Ele chega por e-mail assim que o pedido é postado. Se precisar, fale com a gente pelo <a href="#contato">atendimento</a>.</small>
   </main>
 
-  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><img src="/assets/sanda-logo-transparente.png" alt="Sanda"><p>Uma expressão de elegância para todos os momentos que merecem ser lembrados.</p></div><div><h3>Relógios</h3><a href="/products/classic/">Classic</a><a href="/products/signature/">Signature</a><a href="/products/edition/">Edition</a></div><div><h3>Universo Sanda</h3><a href="/#historia">História</a><a href="/#universo">Sobre nós</a><a href="/rastreio/">Rastreio</a></div><div><h3>Atendimento</h3><a href="/#contato">Contato</a><a href="/#contato">Privacidade</a></div></div><div class="footer-bottom"><span>© 2026 SANDA BRASIL</span><span>O tempo tem presença.</span></div></footer>
-
+  <script src="/store-config.js"></script>
+  <script src="/site.js"></script>
   <script>
     document.querySelector('#tracking-form').addEventListener('submit', (event) => {
       event.preventDefault();
       const code = document.querySelector('#tracking-code').value.trim().toUpperCase();
-      if (!code) return;
-      window.open('https://rastreamento.correios.com.br/app/index.php?objetos=' + encodeURIComponent(code), '_blank', 'noopener');
-    });
-    const menuButton = document.querySelector('[data-menu-button]');
-    const mobileMenu = document.querySelector('[data-mobile-menu]');
-    menuButton.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
+      if (code) window.open('https://rastreamento.correios.com.br/app/index.php?objetos=' + encodeURIComponent(code), '_blank', 'noopener');
     });
   </script>
 </body>

@@ -3,92 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b2220">
-  <meta name="description" content="Conheça os relógios Sanda Brasil.">
+  <meta name="theme-color" content="#0f3b38">
+  <meta name="description" content="Relógio Sanda Brasil. Frete grátis para todo o país, até 3x sem juros e checkout seguro.">
   <title>Relógio | Sanda Brasil</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23080808'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia' font-size='48' font-style='italic' fill='white'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="/assets/sanda-logo-transparente.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bentham&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/product.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bentham&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
 </head>
-<body data-product-slug="edition">
-  <div class="announcement" aria-label="Condições especiais">
-    <div class="announcement-track">
-      <div class="announcement-group"><span>Frete grátis para todo o país</span><span>Até 3x sem juros</span><span>10% OFF na primeira compra</span></div>
-      <div class="announcement-group" aria-hidden="true"><span>Frete grátis para todo o país</span><span>Até 3x sem juros</span><span>10% OFF na primeira compra</span></div>
-    </div>
-  </div>
-  <header class="site-header">
-    <div class="header-inner">
-      <nav class="desktop-nav" aria-label="Navegação principal"><a href="/#colecao">Relógios</a><a href="/#historia">História</a></nav>
-      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="product-mobile-menu">Menu</button>
-      <a class="site-logo" href="/" aria-label="Sanda Brasil, início"><img src="/assets/sanda-logo-transparente.png" alt="Sanda"></a>
-      <nav class="desktop-nav right" aria-label="Atalhos"><a href="/#universo">Sobre nós</a><a href="/rastreio/">Rastreio</a></nav>
-      <nav class="mobile-menu" id="product-mobile-menu" data-mobile-menu aria-label="Menu móvel"><a href="/#colecao">Relógios</a><a href="/#historia">História</a><a href="/#universo">Sobre nós</a><a href="/rastreio/">Rastreio</a></nav>
-    </div>
-  </header>
-
+<body data-product-slug="edition" class="page-top">
   <main>
-    <nav class="breadcrumbs" aria-label="Caminho"><a href="/">Início</a> / <a href="/#colecao">Relógios</a> / <span data-product-name>Modelo Sanda</span></nav>
-    <section class="product-shell" aria-labelledby="product-title">
+    <nav class="crumbs" aria-label="Caminho"><a href="/">Início</a> / <a href="/#colecao">Relógios</a> / <span data-p="name"></span></nav>
+
+    <section class="pdp" aria-labelledby="product-title">
       <div class="gallery">
-        <div class="gallery-thumbs"><button class="thumb active" type="button" aria-label="Imagem principal"><img data-product-image src="/assets/sanda-edition.webp" alt="Relógio Sanda"></button></div>
-        <div class="gallery-main"><img data-product-image src="/assets/sanda-edition.webp" alt="Relógio Sanda"><span class="gallery-label">Sanda Brasil · Em detalhe</span><button class="zoom-button" type="button" data-zoom-button aria-label="Ampliar imagem">⌕</button></div>
+        <div class="gallery__thumbs" data-thumbs></div>
+        <div class="gallery__stage">
+          <img data-stage src="" alt="">
+          <button class="gallery__arrow prev" type="button" data-step="-1" aria-label="Imagem anterior">‹</button>
+          <button class="gallery__arrow next" type="button" data-step="1" aria-label="Próxima imagem">›</button>
+          <button class="gallery__zoom" type="button" data-zoom aria-label="Ampliar imagem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></button>
+          <button class="gallery__video" type="button" data-video hidden><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Veja no pulso</button>
+        </div>
       </div>
-      <div class="product-info">
-        <span class="product-code" data-product-code>MODELO · SANDA BRASIL</span>
-        <h1 id="product-title" data-product-name>Relógio Sanda</h1>
-        <p class="product-description" data-product-description>Uma presença atemporal.</p>
-        <div class="price-line"><span class="product-price" data-product-price>R$ 0,00</span></div>
-        <div class="payment-copy"><p><strong data-installment>3x sem juros</strong></p><p><strong data-first-order-price>10% OFF na primeira compra</strong></p><span class="first-order">10% OFF · Primeira compra</span></div>
 
-        <p class="model-label">Escolha seu modelo</p>
-        <div class="model-links" data-model-links></div>
-        <ul class="benefit-list"><li>Frete grátis para todo o país</li><li>Até 3x sem juros</li><li>Checkout seguro Yampi</li><li>Porta relógio em veludo</li></ul>
-        <div class="order-extra"><strong>Seu Sanda, bem guardado</strong>O pedido acompanha porta relógio em veludo. Um lugar à altura dos momentos que ele vai guardar.</div>
-        <a class="buy-button" data-buy-button href="#">Comprar agora</a>
-        <p class="checkout-note">Você será direcionado ao ambiente seguro da Yampi.</p>
+      <div class="buy">
+        <span class="eyebrow" data-p="code"></span>
+        <h1 class="buy__name" id="product-title" data-p="name"></h1>
+        <p class="buy__desc" data-p="description"></p>
+        <div class="buy__price" data-p="price"></div>
+        <div class="buy__lines">
+          <p><strong data-p="installments"></strong> sem juros</p>
+          <p><strong data-p="first"></strong> na primeira compra <span class="tag">10% OFF</span></p>
+        </div>
 
-        <div class="service-grid"><div><strong>Frete grátis</strong><span>Todo o Brasil</span></div><div><strong>Compra segura</strong><span>Checkout Yampi</span></div><div><strong>Pagamento</strong><span>Até 3x sem juros</span></div></div>
-        <div class="payment-methods"><h2>Formas de pagamento</h2><div class="payment-chips"><span>Pix</span><span>Visa</span><span>Mastercard</span><span>Elo</span><span>Até 3x sem juros</span></div></div>
-        <div class="product-accordions">
-          <details open><summary>Detalhes do modelo</summary><div class="detail-copy"><dl><div><dt>Mostrador</dt><dd>Branco com algarismos romanos</dd></div><div><dt>Pulseira</dt><dd data-product-strap>Em confirmação</dd></div><div><dt>Conteúdo</dt><dd>Relógio e porta relógio em veludo</dd></div></dl></div></details>
-          <details><summary>Entrega para todo o Brasil</summary><div class="detail-copy">Frete grátis para todo o país. O prazo e a disponibilidade para o seu endereço são apresentados no checkout.</div></details>
-          <details><summary>Condições da primeira compra</summary><div class="detail-copy">Oferta de 10% OFF destinada à primeira compra, conforme regras vigentes da campanha no checkout.</div></details>
-          <details><summary>Como acompanho meu pedido?</summary><div class="detail-copy">Depois da compra você recebe o código de rastreio por e-mail. Também é possível consultar na página <a href="/rastreio/">Rastreio</a>.</div></details>
-          <details><summary>O pagamento é seguro?</summary><div class="detail-copy">Sim. O pagamento é concluído no checkout seguro da Yampi, com Pix ou cartão.</div></details>
+        <p class="buy__label">Modelo: <strong data-p="shortStrap"></strong></p>
+        <div class="swatches" data-swatches></div>
+
+        <ul class="checks">
+          <li>Caixa retangular em aço polido</li>
+          <li>Mostrador com algarismos romanos</li>
+          <li data-p="strap"></li>
+          <li>Porta relógio em veludo</li>
+        </ul>
+
+        <div class="gift">
+          <div class="gift__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7Zm0 0h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7Z"/></svg></div>
+          <div><strong>Incluso no pedido: porta relógio em veludo</strong><span>Um lugar à altura dos momentos que ele vai guardar.</span></div>
+        </div>
+
+        <a class="btn btn--dark buy__btn" data-buy href="#">Comprar agora</a>
+        <p class="buy__secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Você conclui o pedido no checkout seguro da Yampi</p>
+
+        <div class="ship"><div><strong>Envio para todo o Brasil</strong><span>Prazo calculado no checkout pelo seu CEP</span></div><b>Frete grátis</b></div>
+
+        <div class="trust">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h12v11H2zM14 9h4l4 4v4h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Frete grátis</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3 9 8 11 5-2 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>Compra segura</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>3x sem juros</div>
+        </div>
+
+        <div class="paybox"><h2>Formas de pagamento</h2><div><span>Pix</span><span>Visa</span><span>Mastercard</span><span>Elo</span><span>Até 3x sem juros</span></div></div>
+
+        <div class="faq">
+          <details><summary>Como funciona a entrega?</summary><p>O frete é grátis para todo o país. O prazo para o seu endereço aparece no checkout, antes de você confirmar o pedido.</p></details>
+          <details><summary>Como uso os 10% OFF da primeira compra?</summary><p>O desconto vale para a primeira compra e é aplicado no checkout conforme as regras da campanha vigente.</p></details>
+          <details><summary>O que vem no pedido?</summary><p>O relógio e um porta relógio em veludo para guardá-lo.</p></details>
+          <details><summary>Como acompanho meu pedido?</summary><p>Você recebe o código de rastreio por e-mail depois da postagem e pode consultar em <a href="/rastreio/">Rastreio</a>.</p></details>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip" aria-label="Benefícios"><div>Frete grátis para todo o país</div><div>Até 3x sem juros</div><div>10% OFF na primeira compra</div></section>
-
-    <section class="editorial" aria-labelledby="editorial-title">
-      <div class="editorial-media"><img src="/assets/hero-editorial.webp" alt="Relógio Sanda usado com alfaiataria" loading="lazy"></div>
-      <div class="editorial-copy"><span class="eyebrow">O TEMPO EM OUTRA PERSPECTIVA</span><h2 id="editorial-title" data-editorial-title>Uma presença atemporal.</h2><p data-editorial-text>Um relógio criado para acompanhar momentos que merecem ser lembrados.</p></div>
+    <section class="life" aria-labelledby="life-title">
+      <div class="life__head"><span class="eyebrow" data-p="lifeEyebrow"></span><h2 id="life-title" data-p="universeTitle"></h2><p data-p="universeText"></p></div>
+      <div class="life__wrap">
+        <button class="arrow prev" type="button" data-life="-1" aria-label="Anterior">‹</button>
+        <div class="life__track" data-life-track></div>
+        <button class="arrow next" type="button" data-life="1" aria-label="Próximo">›</button>
+      </div>
+      <p class="life__note" data-p="universeNote"></p>
+      <div class="life__cta"><a class="btn btn--dark" data-buy href="#">Garantir o meu</a></div>
     </section>
 
-    <section class="details-section" aria-labelledby="details-title">
-      <div class="details-inner">
-        <div class="details-head"><div><span class="eyebrow">POR DENTRO DO SEU SANDA</span><h2 id="details-title">Cada escolha,<br>um detalhe.</h2></div><p>Uma leitura clara do que acompanha o seu modelo, sem promessas técnicas além das informações confirmadas.</p></div>
-        <div class="detail-cards">
-          <article class="detail-card"><span class="detail-number">01</span><h3>Mostrador</h3><p>Branco, com algarismos romanos e desenho de leitura clássica.</p></article>
-          <article class="detail-card"><span class="detail-number">02</span><h3>Pulseira</h3><p data-product-strap>Acabamento do modelo selecionado.</p></article>
-          <article class="detail-card"><span class="detail-number">03</span><h3>Embalagem</h3><p>Porta relógio em veludo incluído no pedido.</p></article>
-          <article class="detail-card"><span class="detail-number">04</span><h3>Entrega</h3><p>Frete grátis; prazo calculado no checkout para o seu endereço.</p></article>
-        </div>
+    <section class="inside" aria-labelledby="inside-title">
+      <span class="eyebrow" data-p="insideEyebrow"></span>
+      <h2 id="inside-title">Cada detalhe, uma escolha.</h2>
+      <div class="tabs" role="tablist" aria-label="Detalhes do relógio">
+        <button type="button" role="tab" aria-selected="true" aria-controls="tabpanel" data-tab="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 8v4l2 2"/></svg>Mostrador</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="tabpanel" data-tab="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8v6H8zM8 16h8v6H8z"/><rect x="6" y="8" width="12" height="8" rx="1"/></svg>Pulseira</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="tabpanel" data-tab="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="4" width="13" height="16" rx="2"/><path d="M18 10h2v4h-2"/></svg>Caixa</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="tabpanel" data-tab="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h18v12H3zM3 8l3-4h12l3 4M9 12h6"/></svg>Embalagem</button>
+      </div>
+      <div class="tabpanel" id="tabpanel" role="tabpanel"><h3 data-tab-title></h3><p data-tab-text></p></div>
+    </section>
+
+    <section class="story" aria-labelledby="story-title">
+      <div class="story__inner">
+        <span class="eyebrow" data-p="code"></span>
+        <h2 id="story-title" data-p="editorialTitle"></h2>
+        <p data-p="editorialText"></p>
+        <p>Da reunião ao jantar, do dia útil à ocasião especial. Um só relógio, à altura dos momentos que merecem ser lembrados.</p>
       </div>
     </section>
 
-    <section class="related" aria-labelledby="related-title"><div class="related-inner"><div class="related-head"><div><span class="eyebrow">COLEÇÃO SANDA</span><h2 id="related-title">Conheça os modelos</h2></div><a href="/#colecao">Ver coleção completa ↗</a></div><div class="related-grid" data-related-products></div></div></section>
+    <div class="strip" aria-hidden="true">
+      <img src="/assets/book-01.webp" alt="" loading="lazy">
+      <img src="/assets/book-02.webp" alt="" loading="lazy">
+      <img src="/assets/hero-editorial.webp" alt="" loading="lazy">
+      <img src="/assets/book-03.webp" alt="" loading="lazy">
+      <img src="/assets/book-04.webp" alt="" loading="lazy">
+    </div>
   </main>
 
-  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><img src="/assets/sanda-logo-transparente.png" alt="Sanda"><p>Uma expressão de elegância para todos os momentos que merecem ser lembrados.</p></div><div><h3>Relógios</h3><a href="/products/classic/">Classic</a><a href="/products/signature/">Signature</a><a href="/products/edition/">Edition</a></div><div><h3>Universo Sanda</h3><a href="/#historia">História</a><a href="/#universo">Sobre nós</a><a href="/rastreio/">Rastreio</a></div><div><h3>Atendimento</h3><a href="/#contato">Contato</a><a href="/#contato">Privacidade</a></div></div><div class="footer-bottom"><span>© <span data-year>2026</span> SANDA BRASIL</span><span>O tempo tem presença.</span></div></footer>
+  <div class="sticky" data-sticky><div><strong data-p="name"></strong><span><span data-p="price"></span> · 3x sem juros</span></div><a class="btn btn--light" data-buy href="#">Comprar agora</a></div>
+  <dialog class="modal" data-modal><button class="modal__close" type="button" data-modal-close aria-label="Fechar">×</button><div data-modal-body></div></dialog>
 
-  <div class="sticky-buy"><div class="sticky-buy-copy"><strong data-sticky-name>Relógio Sanda</strong><span data-sticky-price>R$ 0,00</span></div><a class="buy-button" data-buy-button href="#">Comprar agora</a></div>
-  <dialog class="zoom-dialog" data-zoom-dialog aria-label="Imagem ampliada do relógio"><button class="zoom-close" type="button" data-zoom-close aria-label="Fechar">×</button><img data-product-image src="/assets/sanda-edition.webp" alt="Relógio Sanda ampliado"></dialog>
   <script src="/store-config.js"></script>
+  <script src="/site.js"></script>
   <script src="/product-page.js"></script>
 </body>
 </html>
