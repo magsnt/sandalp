@@ -9,7 +9,10 @@
       code: 'MODELO 01 · SANDA BRASIL',
       description: 'O clássico em couro preto.',
       imageAlt: 'Sanda Classic com pulseira preta',
-      images: ['assets/sanda-classic.webp'],
+      images: ['/assets/sanda-classic.webp'],
+      strap: 'Couro preto',
+      editorialTitle: 'A elegância não pede licença.',
+      editorialText: 'O Classic foi pensado para acompanhar o gesto cotidiano com discrição e presença. Uma escolha atemporal para quem entende que estilo está nos detalhes.',
       price: 899,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/J04KTX1Z9G'
     },
@@ -20,7 +23,10 @@
       code: 'MODELO 02 · SANDA BRASIL',
       description: 'O equilíbrio do couro marrom.',
       imageAlt: 'Sanda Signature com pulseira marrom',
-      images: ['assets/sanda-signature.webp'],
+      images: ['/assets/sanda-signature.webp'],
+      strap: 'Couro marrom',
+      editorialTitle: 'Presença em seu próprio ritmo.',
+      editorialText: 'O Signature combina calor, textura e sobriedade em um desenho versátil. Feito para transitar entre compromissos sem abrir mão da personalidade.',
       price: 949,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/37NE7BRJKB'
     },
@@ -31,7 +37,10 @@
       code: 'MODELO 03 · SANDA BRASIL',
       description: 'A expressão do aço prateado.',
       imageAlt: 'Sanda Edition com pulseira em aço prateado',
-      images: ['assets/sanda-edition.webp'],
+      images: ['/assets/sanda-edition.webp'],
+      strap: 'Aço prateado',
+      editorialTitle: 'O tempo ganha outra presença.',
+      editorialText: 'O Edition traduz a força do aço em uma composição limpa e marcante. Um relógio que se destaca sem precisar exagerar.',
       price: 1099,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/6DI4WBX8G1'
     }
