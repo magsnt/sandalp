@@ -25,7 +25,10 @@
             <a class="btn btn--light" href="products/classic/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
-        <a class="cine__scroll" href="#signature" aria-label="Ir para o próximo destaque">⌄</a>
+        <a class="cine__scroll" href="#signature" data-auto-scroll="#signature" data-delay="7000" aria-label="Ir para o próximo destaque. Avanço automático em 7 segundos">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="cine__scroll-track" cx="24" cy="24" r="22" pathLength="100"/><circle class="cine__scroll-progress" cx="24" cy="24" r="22" pathLength="100"/></svg>
+          <span class="cine__scroll-center" aria-hidden="true"><span class="cine__scroll-count" data-countdown>7</span><span class="cine__scroll-arrow">↓</span></span>
+        </a>
       </div>
     </section>
 
@@ -41,7 +44,10 @@
             <a class="btn btn--light" href="products/signature/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
-        <a class="cine__scroll" href="#colecao" aria-label="Ir para a coleção">⌄</a>
+        <a class="cine__scroll" href="#colecao" data-auto-scroll="#colecao" data-delay="7000" aria-label="Ir para a coleção. Avanço automático em 7 segundos">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="cine__scroll-track" cx="24" cy="24" r="22" pathLength="100"/><circle class="cine__scroll-progress" cx="24" cy="24" r="22" pathLength="100"/></svg>
+          <span class="cine__scroll-center" aria-hidden="true"><span class="cine__scroll-count" data-countdown>7</span><span class="cine__scroll-arrow">↓</span></span>
+        </a>
       </div>
     </section>
 
@@ -103,6 +109,67 @@
         document.querySelector('#club-message').textContent = 'Obrigado! O cadastro estará disponível em breve.';
         event.target.reset();
       });
+
+      const autoScrollLinks = [...document.querySelectorAll('[data-auto-scroll]')];
+      const activeTimers = new Map();
+      const completedTimers = new WeakSet();
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const stopTimer = (link) => {
+        const timer = activeTimers.get(link);
+        if (!timer) return;
+        clearInterval(timer.interval);
+        clearTimeout(timer.timeout);
+        activeTimers.delete(link);
+        link.classList.remove('is-counting');
+      };
+
+      const startTimer = (link) => {
+        if (reducedMotion || completedTimers.has(link) || activeTimers.has(link)) return;
+        const delay = Number(link.dataset.delay) || 7000;
+        const count = link.querySelector('[data-countdown]');
+        const startedAt = Date.now();
+        count.textContent = String(Math.ceil(delay / 1000));
+        link.style.setProperty('--timer-duration', delay + 'ms');
+        link.classList.add('is-counting');
+
+        const interval = setInterval(() => {
+          count.textContent = String(Math.max(1, Math.ceil((delay - (Date.now() - startedAt)) / 1000)));
+        }, 200);
+        const timeout = setTimeout(() => {
+          stopTimer(link);
+          completedTimers.add(link);
+          const target = document.querySelector(link.dataset.autoScroll);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, delay);
+        activeTimers.set(link, { interval, timeout });
+      };
+
+      if (!reducedMotion) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const link = entry.target.querySelector('[data-auto-scroll]');
+            if (!link) return;
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.55) startTimer(link);
+            else stopTimer(link);
+          });
+        }, { threshold: [0, 0.55] });
+
+        autoScrollLinks.forEach((link) => {
+          observer.observe(link.closest('.ct'));
+          link.addEventListener('click', () => {
+            completedTimers.add(link);
+            stopTimer(link);
+          });
+        });
+
+        const cancelCurrentTimer = () => activeTimers.forEach((_timer, link) => stopTimer(link));
+        window.addEventListener('wheel', cancelCurrentTimer, { passive: true });
+        window.addEventListener('touchstart', cancelCurrentTimer, { passive: true });
+        window.addEventListener('keydown', (event) => {
+          if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) cancelCurrentTimer();
+        });
+      }
     })();
   </script>
 </body>

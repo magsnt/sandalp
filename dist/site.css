@@ -106,8 +106,17 @@ button{font:inherit;color:inherit;cursor:pointer}
 .home-reference .cine__title span{font-weight:300}
 .home-reference .cine__sub{max-width:520px;font-size:16px;line-height:1.55}
 .home-reference .cine__inner{padding-bottom:clamp(72px,10vh,104px)}
-.home-reference .cine__scroll{position:absolute;z-index:3;left:var(--edge);bottom:24px;width:42px;height:42px;border:1px solid #ffffffb3;display:grid;place-items:center;color:#fff;font-size:22px;line-height:1;transition:background .2s,color .2s}
+.home-reference .cine__scroll{position:absolute;z-index:3;left:var(--edge);bottom:22px;width:52px;height:52px;display:grid;place-items:center;color:#fff;line-height:1;transition:background .2s,color .2s;border-radius:50%}
 .home-reference .cine__scroll:hover{background:#fff;color:var(--ink)}
+.cine__scroll svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.cine__scroll circle{fill:none;stroke-width:1.5}
+.cine__scroll-track{stroke:#ffffff66}
+.cine__scroll-progress{stroke:currentColor;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100}
+.cine__scroll.is-counting .cine__scroll-progress{animation:cine-countdown var(--timer-duration,7000ms) linear forwards}
+.cine__scroll-center{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px}
+.cine__scroll-count{font-size:10px;font-weight:700;letter-spacing:.08em}
+.cine__scroll-arrow{font-size:14px}
+@keyframes cine-countdown{to{stroke-dashoffset:0}}
 .cine--signature{background:#765b46}
 .cine--signature::after{background:linear-gradient(90deg,#2a1b12d9 0%,#2a1b1273 42%,#2a1b120d 72%)}
 .cine__wash{position:absolute;inset:0;background:radial-gradient(circle at 72% 45%,#e7d8c7 0 18%,#b3967d 48%,#765b46 100%)}
