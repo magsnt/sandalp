@@ -99,6 +99,23 @@ button{font:inherit;color:inherit;cursor:pointer}
 .cine__actions{display:flex;flex-wrap:wrap;gap:12px}
 .cine__index{position:absolute;z-index:2;right:var(--edge);bottom:clamp(56px,9vh,90px);font-size:11px;letter-spacing:.2em;writing-mode:vertical-rl;opacity:.75}
 
+/* Home inspirada na cadência visual da referência, com identidade Sanda */
+.home-reference .header__logo{width:76px}
+.home-reference .cine__title,.home-reference .coll__title,.home-reference .club h2{font-family:var(--sans);font-weight:400;letter-spacing:-.055em}
+.home-reference .cine__title{font-size:clamp(58px,9vw,124px);line-height:.9}
+.home-reference .cine__title span{font-weight:300}
+.home-reference .cine__sub{max-width:520px;font-size:16px;line-height:1.55}
+.home-reference .cine__inner{padding-bottom:clamp(72px,10vh,104px)}
+.home-reference .cine__scroll{position:absolute;z-index:3;left:var(--edge);bottom:24px;width:42px;height:42px;border:1px solid #ffffffb3;display:grid;place-items:center;color:#fff;font-size:22px;line-height:1;transition:background .2s,color .2s}
+.home-reference .cine__scroll:hover{background:#fff;color:var(--ink)}
+.cine--signature{background:#765b46}
+.cine--signature::after{background:linear-gradient(90deg,#2a1b12d9 0%,#2a1b1273 42%,#2a1b120d 72%)}
+.cine__wash{position:absolute;inset:0;background:radial-gradient(circle at 72% 45%,#e7d8c7 0 18%,#b3967d 48%,#765b46 100%)}
+.cine__media--product{object-fit:contain!important;object-position:75% 50%;padding:7vh 7vw 3vh 46vw;mix-blend-mode:multiply;filter:contrast(1.04) saturate(.92)}
+.home-reference .coll__title{font-size:clamp(46px,6vw,78px)}
+.home-reference .cwatch__name{font-family:var(--sans);font-size:22px;letter-spacing:-.03em}
+#sobre{scroll-margin-top:calc(var(--bar) + var(--head) + 30px)}
+
 .coll{position:relative;z-index:3;min-height:100vh;background:#fff;padding:calc(var(--bar) + var(--head) + 40px) 0 80px;display:flex;flex-direction:column;justify-content:center}
 .coll__head{width:min(100% - 2*var(--edge),var(--max));margin:0 auto 34px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
 .coll__title{font:400 clamp(44px,5.6vw,76px)/1 var(--serif);margin:14px 0 0}
@@ -297,5 +314,9 @@ button{font:inherit;color:inherit;cursor:pointer}
   .club form,.track-form{flex-direction:column}
   .footer__bottom{flex-direction:column}
   .sticky strong{font-size:12px}
+  .home-reference .cine__title{font-size:clamp(54px,18vw,78px)}
+  .home-reference .cine__sub{font-size:14px;max-width:330px}
+  .cine__media--product{object-position:50% 22%;padding:9vh 8vw 32vh}
+  .cine--signature::after{background:linear-gradient(180deg,#2a1b1200 20%,#2a1b12d9 72%,#2a1b12f2 100%)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.topbar__track{animation:none}*,*::before,*::after{transition-duration:.01ms!important}}

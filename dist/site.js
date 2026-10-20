@@ -4,7 +4,7 @@
   const store = window.SANDA_STORE;
   const body = document.body;
   const overlay = body.dataset.header === 'overlay';
-  const offers = ['Frete grátis para todo o país', 'Até 3x sem juros', '10% OFF na primeira compra', 'Checkout seguro Yampi', 'Porta relógio em veludo incluso'];
+  const offers = ['Frete grátis para todo o país', 'Até 3x sem juros', '10% OFF na primeira compra'];
   const group = (hidden) => '<div class="topbar__group"' + (hidden ? ' aria-hidden="true"' : '') + '>' + offers.map((offer) => '<span>' + offer + '</span>').join('') + '</div>';
   const modelCard = (product) => '<a href="/products/' + product.slug + '/"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><strong>' + product.name + '</strong><small>' + store.formatPrice(product.price) + '</small></a>';
 
