@@ -1,12 +1,16 @@
 (function () {
   'use strict';
 
+  const scriptUrl = document.currentScript && document.currentScript.src;
+  const siteRoot = scriptUrl ? new URL('.', scriptUrl) : new URL('./', window.location.href);
+  const siteUrl = (path) => new URL(String(path).replace(/^\//, ''), siteRoot).toString();
+
   // Fotos de estilo de vida disponíveis hoje mostram o modelo Classic.
   const universeImages = [
-    { src: '/assets/book-01.webp', title: 'Presença no pulso', text: 'Discreto no gesto, marcante no detalhe.' },
-    { src: '/assets/book-03.webp', title: 'Do escritório ao jantar', text: 'Um desenho que acompanha o dia inteiro.' },
-    { src: '/assets/hero-editorial.webp', title: 'Alfaiataria em foco', text: 'Feito para combinar com o que você já veste.' },
-    { src: '/assets/book-02.webp', title: 'Sobre a mesa', text: 'Linhas retas e acabamento polido.' }
+    { src: siteUrl('assets/book-01.webp'), title: 'Presença no pulso', text: 'Discreto no gesto, marcante no detalhe.' },
+    { src: siteUrl('assets/book-03.webp'), title: 'Do escritório ao jantar', text: 'Um desenho que acompanha o dia inteiro.' },
+    { src: siteUrl('assets/hero-editorial.webp'), title: 'Alfaiataria em foco', text: 'Feito para combinar com o que você já veste.' },
+    { src: siteUrl('assets/book-02.webp'), title: 'Sobre a mesa', text: 'Linhas retas e acabamento polido.' }
   ];
 
   const products = [
@@ -20,9 +24,9 @@
       description: 'O clássico em couro preto.',
       heroText: 'Caixa retangular em aço polido, mostrador com algarismos romanos e pulseira em couro preto.',
       imageAlt: 'Sanda Classic com pulseira preta',
-      images: ['/assets/sanda-classic.webp', '/assets/book-04.webp', '/assets/book-02.webp'],
-      backImage: '/assets/book-02.webp',
-      video: '/assets/hero-film.mp4',
+      images: [siteUrl('assets/sanda-classic.webp'), siteUrl('assets/book-04.webp'), siteUrl('assets/book-02.webp')],
+      backImage: siteUrl('assets/book-02.webp'),
+      video: siteUrl('assets/hero-film.mp4'),
       strap: 'Couro preto',
       editorialTitle: 'A elegância não pede licença.',
       editorialText: 'O Classic foi pensado para acompanhar o gesto cotidiano com discrição e presença. Uma escolha atemporal para quem entende que estilo está nos detalhes.',
@@ -43,7 +47,7 @@
       description: 'O equilíbrio do couro marrom.',
       heroText: 'O mesmo desenho retangular, agora com o calor do couro marrom.',
       imageAlt: 'Sanda Signature com pulseira marrom',
-      images: ['/assets/sanda-signature.webp'],
+      images: [siteUrl('assets/sanda-signature.webp')],
       backImage: '',
       video: '',
       strap: 'Couro marrom',
@@ -66,7 +70,7 @@
       description: 'A expressão do aço prateado.',
       heroText: 'Caixa e pulseira em aço prateado para um visual inteiro em metal.',
       imageAlt: 'Sanda Edition com pulseira em aço prateado',
-      images: ['/assets/sanda-edition.webp'],
+      images: [siteUrl('assets/sanda-edition.webp')],
       backImage: '',
       video: '',
       strap: 'Aço prateado',
@@ -123,6 +127,7 @@
   window.SANDA_STORE = Object.freeze({
     products: Object.freeze(products.map((product) => Object.freeze(product))),
     universeImages: Object.freeze(universeImages),
+    url: siteUrl,
     formatPrice,
     buildCheckoutUrl
   });

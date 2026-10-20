@@ -2,28 +2,29 @@
   'use strict';
 
   const store = window.SANDA_STORE;
+  const url = store.url;
   const body = document.body;
   const overlay = body.dataset.header === 'overlay';
   const offers = ['Frete grátis para todo o país', 'Até 3x sem juros', '10% OFF na primeira compra'];
   const group = (hidden) => '<div class="topbar__group"' + (hidden ? ' aria-hidden="true"' : '') + '>' + offers.map((offer) => '<span>' + offer + '</span>').join('') + '</div>';
-  const modelCard = (product) => '<a href="/products/' + product.slug + '/"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><strong>' + product.name + '</strong><small>' + store.formatPrice(product.price) + '</small></a>';
+  const modelCard = (product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><strong>' + product.name + '</strong><small>' + store.formatPrice(product.price) + '</small></a>';
 
   const chrome = document.createElement('div');
   chrome.innerHTML =
     '<div class="topbar" aria-label="Condições especiais"><div class="topbar__track">' + group(false) + group(true) + '</div></div>' +
     '<header class="header' + (overlay ? ' header--overlay' : '') + '">' +
       '<button class="header__burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>' +
-      '<a class="header__logo" href="/" aria-label="Sanda Brasil, início"><img src="/assets/sanda-logo-transparente.png" alt="Sanda"></a>' +
+      '<a class="header__logo" href="' + url('') + '" aria-label="Sanda Brasil, início"><img src="' + url('assets/sanda-logo-transparente.png') + '" alt="Sanda"></a>' +
       '<nav class="header__nav" aria-label="Navegação principal">' +
         '<div class="header__drop"><button type="button" aria-expanded="false">Relógios</button><div class="header__menu">' + store.products.map(modelCard).join('') + '</div></div>' +
-        '<a href="/#historia">História</a><a href="/#sobre">Sobre nós</a><a href="/rastreio/">Rastreio</a>' +
+        '<a href="' + url('#historia') + '">História</a><a href="' + url('#sobre') + '">Sobre nós</a><a href="' + url('rastreio/') + '">Rastreio</a>' +
       '</nav>' +
-      '<div class="header__actions"><a class="header__cta" href="/#colecao">Comprar</a></div>' +
+      '<div class="header__actions"><a class="header__cta" href="' + url('#colecao') + '">Comprar</a></div>' +
     '</header>' +
     '<nav class="drawer" id="drawer" aria-label="Menu">' +
       '<span class="eyebrow drawer__label">Relógios</span>' +
-      '<div class="drawer__models">' + store.products.map((product) => '<a href="/products/' + product.slug + '/"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><span>' + product.shortName + '</span></a>').join('') + '</div>' +
-      '<a href="/#colecao">Coleção</a><a href="/#historia">História</a><a href="/#sobre">Sobre nós</a><a href="/rastreio/">Rastreio</a>' +
+      '<div class="drawer__models">' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><span>' + product.shortName + '</span></a>').join('') + '</div>' +
+      '<a href="' + url('#colecao') + '">Coleção</a><a href="' + url('#historia') + '">História</a><a href="' + url('#sobre') + '">Sobre nós</a><a href="' + url('rastreio/') + '">Rastreio</a>' +
     '</nav>';
   body.prepend(...chrome.children);
 
@@ -32,9 +33,9 @@
   footer.id = 'contato';
   footer.innerHTML =
     '<div class="footer__grid">' +
-      '<div class="footer__brand"><img src="/assets/sanda-logo-transparente.png" alt="Sanda"><p>Uma expressão de elegância para todos os momentos que merecem ser lembrados.</p></div>' +
-      '<div><h3>Relógios</h3>' + store.products.map((product) => '<a href="/products/' + product.slug + '/">' + product.name + '</a>').join('') + '</div>' +
-      '<div><h3>Universo Sanda</h3><a href="/#historia">História</a><a href="/#sobre">Sobre nós</a><a href="/rastreio/">Rastreio</a></div>' +
+      '<div class="footer__brand"><img src="' + url('assets/sanda-logo-transparente.png') + '" alt="Sanda"><p>Uma expressão de elegância para todos os momentos que merecem ser lembrados.</p></div>' +
+      '<div><h3>Relógios</h3>' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '">' + product.name + '</a>').join('') + '</div>' +
+      '<div><h3>Universo Sanda</h3><a href="' + url('#historia') + '">História</a><a href="' + url('#sobre') + '">Sobre nós</a><a href="' + url('rastreio/') + '">Rastreio</a></div>' +
       '<div><h3>Compra segura</h3><ul><li>Checkout Yampi</li><li>Frete grátis para todo o país</li><li>Até 3x sem juros</li></ul><div class="footer__pay"><span>PIX</span><span>VISA</span><span>MASTERCARD</span><span>ELO</span></div></div>' +
     '</div>' +
     '<div class="footer__bottom"><span>© ' + new Date().getFullYear() + ' Sanda Brasil · Todos os direitos reservados</span><span>O tempo tem presença.</span></div>';

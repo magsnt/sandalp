@@ -70,7 +70,7 @@
 
   // Modelos
   document.querySelector('[data-swatches]').innerHTML = store.products.map((item) =>
-    '<a class="swatch' + (item.slug === product.slug ? ' active' : '') + '" href="/products/' + item.slug + '/"' + (item.slug === product.slug ? ' aria-current="page"' : '') + '>' +
+    '<a class="swatch' + (item.slug === product.slug ? ' active' : '') + '" href="' + store.url('products/' + item.slug + '/') + '"' + (item.slug === product.slug ? ' aria-current="page"' : '') + '>' +
     '<figure><img src="' + item.images[0] + '" alt="" loading="lazy"></figure><span>' + item.shortName + '</span></a>'
   ).join('');
 
