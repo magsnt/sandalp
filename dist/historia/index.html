@@ -16,7 +16,7 @@
 <body data-header="overlay" class="history-page">
   <main>
     <section class="history-hero" aria-labelledby="history-title">
-      <video class="history-hero__media" src="../assets/studio-film.mp4" poster="../assets/studio-editorial.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      <img class="history-hero__media" src="../assets/history/history-hero.png" alt="Relógio Sanda Steel Edition em composição escura" fetchpriority="high">
       <div class="history-hero__inner">
         <span class="eyebrow">Nossa história</span>
         <h1 id="history-title">O tempo<br>tem presença.</h1>
@@ -26,7 +26,7 @@
     </section>
 
     <section class="history-origin" aria-labelledby="origin-title">
-      <div class="history-origin__media"><img src="../assets/book-01.webp" alt="Relógio Sanda em uma composição editorial" loading="lazy"></div>
+      <div class="history-origin__media"><img src="../assets/history/history-origin.png" alt="Relógio Sanda sobre desenhos técnicos em um ateliê" loading="lazy"></div>
       <div class="history-origin__copy">
         <span class="eyebrow">O começo</span>
         <h2 id="origin-title">Uma ideia simples, desenhada para durar.</h2>
@@ -38,6 +38,7 @@
     </section>
 
     <section class="history-manifesto" aria-labelledby="manifesto-title">
+      <img class="history-manifesto__media" src="../assets/history/history-manifesto.png" alt="" loading="lazy">
       <div class="history-manifesto__inner">
         <span class="eyebrow">Nosso manifesto</span>
         <blockquote id="manifesto-title">“Não contamos apenas as horas. Guardamos aquilo que acontece dentro delas.”</blockquote>
@@ -52,9 +53,18 @@
         <p>Da primeira escolha ao último detalhe, cada peça passa pelo mesmo olhar.</p>
       </div>
       <div class="history-values__grid">
-        <article class="history-value"><span class="history-value__number">01</span><h3>Forma</h3><p>Proporções equilibradas e uma silhueta reconhecível. Design para permanecer relevante quando a tendência passar.</p></article>
-        <article class="history-value"><span class="history-value__number">02</span><h3>Matéria</h3><p>Aço polido, couro com textura e mostradores de leitura limpa. Materiais escolhidos pelo que revelam de perto.</p></article>
-        <article class="history-value"><span class="history-value__number">03</span><h3>Presença</h3><p>Um relógio deve completar quem o usa, nunca esconder. Discreto no gesto, marcante na memória.</p></article>
+        <article class="history-value">
+          <img class="history-value__media" src="../assets/history/history-forma.png" alt="Macro das linhas retangulares do relógio Sanda" loading="lazy">
+          <div class="history-value__copy"><span class="history-value__number">01</span><h3>Forma</h3><p>Proporções equilibradas e uma silhueta reconhecível. Design para permanecer relevante quando a tendência passar.</p></div>
+        </article>
+        <article class="history-value">
+          <img class="history-value__media" src="../assets/history/history-materia.png" alt="Detalhe do aço, vidro, couro e coroa azul do relógio Sanda" loading="lazy">
+          <div class="history-value__copy"><span class="history-value__number">02</span><h3>Matéria</h3><p>Aço polido, couro com textura e mostradores de leitura limpa. Materiais escolhidos pelo que revelam de perto.</p></div>
+        </article>
+        <article class="history-value">
+          <img class="history-value__media" src="../assets/history/history-presenca.png" alt="Relógio Sanda Classic usado com alfaiataria" loading="lazy">
+          <div class="history-value__copy"><span class="history-value__number">03</span><h3>Presença</h3><p>Um relógio deve completar quem o usa, nunca esconder. Discreto no gesto, marcante na memória.</p></div>
+        </article>
       </div>
     </section>
 
@@ -67,7 +77,7 @@
         <div><a class="btn btn--dark" href="../#colecao">Conheça a coleção</a></div>
       </div>
       <div class="history-chapter__media">
-        <img src="../assets/book-03.webp" alt="Sanda Classic em cena editorial" loading="lazy">
+        <img src="../assets/history/history-colecao.png" alt="Coleção inaugural Sanda com os modelos Classic, Signature e Steel Edition" loading="lazy">
         <span class="history-chapter__caption">Coleção inaugural · Sanda Brasil</span>
       </div>
     </section>
@@ -78,6 +88,7 @@
           <div><span class="eyebrow">Nossa trajetória</span><h2 id="journey-title">Do primeiro traço<br>ao seu pulso.</h2></div>
           <p>Uma história que ainda está no começo — construída com escolhas conscientes e com as pessoas que decidem fazer parte dela.</p>
         </div>
+        <figure class="history-journey__media"><img src="../assets/history/history-trajetoria.png" alt="Evolução do relógio Sanda, do esboço aos componentes e à peça final" loading="lazy"></figure>
         <div class="history-steps">
           <article class="history-step"><span>CAPÍTULO 01</span><h3>A busca pela forma</h3><p>Uma pesquisa por proporções atemporais levou à caixa retangular que define a identidade da primeira coleção.</p></article>
           <article class="history-step"><span>CAPÍTULO 02</span><h3>A coleção inaugural</h3><p>Três modelos transformaram uma mesma assinatura em diferentes maneiras de estar presente.</p></article>
@@ -93,12 +104,13 @@
 
     <section class="history-future" aria-labelledby="future-title">
       <div class="history-future__inner">
+      <img class="history-future__media" src="../assets/history/history-futuro.png" alt="" loading="lazy">
         <span class="eyebrow">O próximo capítulo</span>
         <h2 id="future-title">A história continua com você.</h2>
         <p>Há momentos que passam. Outros permanecem porque escolhemos estar presentes neles. Encontre o Sanda que vai acompanhar os seus.</p>
         <div class="history-future__actions">
-          <a class="btn btn--dark" href="../#colecao">Escolha o seu</a>
-          <a class="btn btn--outline" href="../#universo">Faça parte do universo</a>
+          <a class="btn btn--light" href="../#colecao">Escolha o seu</a>
+          <a class="btn btn--outline history-future__outline" href="../#universo">Faça parte do universo</a>
         </div>
       </div>
     </section>
