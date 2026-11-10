@@ -29,7 +29,6 @@
       </div>
 
       <div class="buy">
-        <span class="eyebrow" data-p="code"></span>
         <h1 class="buy__name" id="product-title" data-p="name"></h1>
         <p class="buy__desc" data-p="description"></p>
         <div class="buy__price" data-p="price"></div>
@@ -38,7 +37,14 @@
           <p><strong data-p="first"></strong> na primeira compra <span class="tag">10% OFF</span></p>
         </div>
 
-        <p class="buy__label">Modelo: <strong data-p="shortStrap"></strong></p>
+
+        <div class="demand" role="note" aria-label="Aviso de disponibilidade">
+          <div class="demand__head"><span class="demand__pulse" aria-hidden="true"></span><strong>Em alta demanda</strong><span>Estoque limitado</span></div>
+          <div class="demand__bar" aria-hidden="true"><span></span></div>
+          <p>A disponibilidade do modelo pode mudar durante a compra.</p>
+        </div>
+
+        <p class="buy__label"><strong data-p="shortStrap"></strong></p>
         <div class="swatches" data-swatches></div>
 
         <ul class="checks">
@@ -49,12 +55,11 @@
         </ul>
 
         <div class="gift">
-          <div class="gift__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7Zm0 0h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7Z"/></svg></div>
+          <img class="gift__image" data-case-image alt="Porta-relógio com interior em veludo" width="120" height="120">
           <div><strong>Incluso no pedido: porta relógio em veludo</strong><span>Um lugar à altura dos momentos que ele vai guardar.</span></div>
         </div>
 
         <a class="btn btn--dark buy__btn" data-buy href="#">Comprar agora</a>
-        <p class="buy__secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Você conclui o pedido no checkout seguro da Yampi</p>
 
         <div class="ship"><div><strong>Envio para todo o Brasil</strong><span>Prazo calculado no checkout pelo seu CEP</span></div><b>Frete grátis</b></div>
 
@@ -72,6 +77,15 @@
           <details><summary>O que vem no pedido?</summary><p>O relógio e um porta relógio em veludo para guardá-lo.</p></details>
           <details><summary>Como acompanho meu pedido?</summary><p>Você recebe o código de rastreio por e-mail depois da postagem e pode consultar em <a href="../../rastreio/">Rastreio</a>.</p></details>
         </div>
+      </div>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-title">
+      <div class="reviews__head"><span class="eyebrow">O QUE DIZEM SOBRE A SANDA</span><h2 id="reviews-title">Avaliações</h2><p>Prévia visual com comentários fictícios. As avaliações de clientes serão adicionadas após as primeiras compras.</p></div>
+      <div class="reviews__grid">
+        <article class="review"><div class="review__top"><span class="review__avatar" aria-hidden="true">MS</span><div><strong>Marina S.</strong><span>Exemplo ilustrativo</span></div></div><span class="review__stars" aria-label="Cinco estrelas">★★★★★</span><h3>Elegância nos detalhes</h3><p>O desenho é discreto e combina muito bem com uma produção mais arrumada.</p></article>
+        <article class="review"><div class="review__top"><span class="review__avatar" aria-hidden="true">RL</span><div><strong>Rafael L.</strong><span>Exemplo ilustrativo</span></div></div><span class="review__stars" aria-label="Cinco estrelas">★★★★★</span><h3>Visual marcante</h3><p>Gostei da caixa retangular e dos detalhes do mostrador. É o tipo de relógio que chama atenção sem exagero.</p></article>
+        <article class="review review--photo"><img data-review-image alt="Fotografia ilustrativa do relógio Sanda" loading="lazy"><div><div class="review__top"><span class="review__avatar" aria-hidden="true">CA</span><div><strong>Clara A.</strong><span>Exemplo ilustrativo</span></div></div><span class="review__stars" aria-label="Cinco estrelas">★★★★★</span><h3>Uma boa opção de presente</h3><p>O porta-relógio dá um toque especial à apresentação.</p></div></article>
       </div>
     </section>
 

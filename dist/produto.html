@@ -18,10 +18,9 @@
   <main>
     <a class="back" id="back" href="index.html#comprar">← Voltar ao modelo</a>
     <div class="layout">
-      <div class="photo"><img id="product-image" src="assets/sanda-classic.webp" alt="Sanda Classic com pulseira preta" width="1024" height="1536"></div>
+      <div class="photo"><img id="product-image" src="assets/sanda-classic.webp" alt="Classic com pulseira preta" width="1024" height="1536"></div>
       <div class="content">
-        <span class="eyebrow" id="model-code">MODELO 01 · SANDA BRASIL</span>
-        <h1 id="model-name">Sanda Classic</h1>
+        <h1 id="model-name">Classic</h1>
         <p id="model-description">O clássico em couro preto.</p>
         <div class="price" id="product-price">Preço em definição</div>
         <div class="notice" id="checkout-notice">A ficha técnica completa deste modelo está em preparação. As medidas e características abaixo serão publicadas após confirmação.</div>
@@ -48,7 +47,6 @@
     const cta=document.querySelector('#product-cta');
     document.title=item.name+' | Sanda Brasil';
     document.querySelector('#model-name').textContent=item.name;
-    document.querySelector('#model-code').textContent=item.code;
     document.querySelector('#model-description').textContent=item.description;
     document.querySelector('#product-price').textContent=window.SANDA_STORE.formatPrice(item.price);
     document.querySelector('#product-image').src=item.images[0];
@@ -57,7 +55,7 @@
     cta.href=checkoutUrl||homeUrl;
     cta.textContent=checkoutUrl?'Comprar agora':'Voltar à compra';
     cta.setAttribute('aria-disabled',String(!checkoutUrl));
-    if(checkoutUrl)document.querySelector('#checkout-notice').textContent='Ao comprar, você será direcionado ao ambiente seguro da Yampi para concluir o pedido.';
+    if(checkoutUrl)document.querySelector('#checkout-notice').textContent='Você será direcionado ao ambiente seguro de pagamento para concluir o pedido.';
   </script>
 </body>
 </html>

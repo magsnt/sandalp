@@ -23,7 +23,7 @@
     '</header>' +
     '<nav class="drawer" id="drawer" aria-label="Menu">' +
       '<span class="eyebrow drawer__label">Relógios</span>' +
-      '<div class="drawer__models">' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><span>' + product.shortName + '</span></a>').join('') + '</div>' +
+      '<div class="drawer__models">' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><span>' + product.name + '</span></a>').join('') + '</div>' +
       '<a href="' + url('#colecao') + '">Coleção</a><a href="' + url('#historia') + '">História</a><a href="' + url('#sobre') + '">Sobre nós</a><a href="' + url('rastreio/') + '">Rastreio</a>' +
     '</nav>';
   body.prepend(...chrome.children);
@@ -36,7 +36,7 @@
       '<div class="footer__brand"><img src="' + url('assets/sanda-logo-transparente.png') + '" alt="Sanda"><p>Uma expressão de elegância para todos os momentos que merecem ser lembrados.</p></div>' +
       '<div><h3>Relógios</h3>' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '">' + product.name + '</a>').join('') + '</div>' +
       '<div><h3>Universo Sanda</h3><a href="' + url('#historia') + '">História</a><a href="' + url('#sobre') + '">Sobre nós</a><a href="' + url('rastreio/') + '">Rastreio</a></div>' +
-      '<div><h3>Compra segura</h3><ul><li>Checkout Yampi</li><li>Frete grátis para todo o país</li><li>Até 3x sem juros</li></ul><div class="footer__pay"><span>PIX</span><span>VISA</span><span>MASTERCARD</span><span>ELO</span></div></div>' +
+      '<div><h3>Compra segura</h3><ul><li>Pagamento protegido</li><li>Frete grátis para todo o país</li><li>Até 3x sem juros</li></ul><div class="footer__pay"><span>PIX</span><span>VISA</span><span>MASTERCARD</span><span>ELO</span></div></div>' +
     '</div>' +
     '<div class="footer__bottom"><span>© ' + new Date().getFullYear() + ' Sanda Brasil · Todos os direitos reservados</span><span>O tempo tem presença.</span></div>';
   body.append(footer);

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0f3b38">
-  <meta name="description" content="Sanda Brasil: relógios Classic, Signature e Edition. Frete grátis para todo o país, até 3x sem juros e checkout seguro.">
+  <meta name="description" content="Sanda Brasil: relógios Classic, Signature e Steel Edition. Frete grátis para todo o país, até 3x sem juros e checkout seguro.">
   <title>Sanda Brasil | O tempo tem presença</title>
   <link rel="icon" type="image/png" href="assets/sanda-logo-transparente.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
         <video class="cine__media" src="assets/sanda-classic-film.mp4" poster="assets/sanda-classic-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
         <div class="cine__inner">
           <span class="cine__tag">Coleção inaugural · Couro preto</span>
-          <h1 class="cine__title" id="cine-classic"><span>001</span> Classic</h1>
+          <h1 class="cine__title" id="cine-classic">Classic</h1>
           <p class="cine__sub">Para quem sabe que presença não precisa de excesso. Linhas retas, mostrador clássico e couro preto.</p>
           <div class="cine__actions">
             <a class="btn btn--light" href="products/classic/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -53,7 +53,7 @@
         <video class="cine__media" src="assets/sanda-signature-film.mp4" poster="assets/sanda-signature-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
         <div class="cine__inner">
           <span class="cine__tag">Coleção inaugural · Couro marrom</span>
-          <h2 class="cine__title" id="cine-signature"><span>002</span> Signature</h2>
+          <h2 class="cine__title" id="cine-signature">Signature</h2>
           <p class="cine__sub">A mesma assinatura retangular, agora com o calor e a textura do couro marrom.</p>
           <div class="cine__actions">
             <a class="btn btn--light" href="products/signature/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -71,7 +71,7 @@
         <video class="cine__media" src="assets/sanda-edition-film.mp4" poster="assets/sanda-edition-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
         <div class="cine__inner">
           <span class="cine__tag">Coleção inaugural · Aço prateado</span>
-          <h2 class="cine__title" id="cine-edition"><span>003</span> Edition</h2>
+          <h2 class="cine__title" id="cine-edition">Steel Edition</h2>
           <p class="cine__sub">A força do aço em uma composição limpa e marcante, com caixa e pulseira inteiras em metal.</p>
           <div class="cine__actions">
             <a class="btn btn--light" href="products/edition/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -108,7 +108,10 @@
     </section>
 
     <section class="club" id="universo" aria-labelledby="club-title">
-      <video src="assets/studio-film.mp4" poster="assets/studio-editorial.webp" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
+      <div class="club__media" aria-hidden="true">
+        <video class="is-active" data-club-video src="assets/sanda-classic-film.mp4" poster="assets/sanda-classic-film-poster.jpg" muted playsinline preload="metadata"></video>
+        <video data-club-video src="assets/sanda-signature-film.mp4" poster="assets/sanda-signature-film-poster.jpg" muted playsinline preload="metadata"></video>
+      </div>
       <div class="club__inner">
         <span class="eyebrow">Sanda Brasil · Universo</span>
         <h2 id="club-title">Faça parte</h2>
@@ -134,7 +137,7 @@
         '<article class="hslide" data-highlight-index="' + index + '">' +
           '<a class="hslide__link" href="' + store.url('products/' + product.slug + '/') + '">' +
             '<div class="hslide__visual"><img class="hslide__shadow" src="' + product.images[0] + '" alt="" loading="lazy"><img class="hslide__watch" src="' + product.images[0] + '" alt="' + product.imageAlt + '" loading="lazy"></div>' +
-            '<div class="hslide__copy"><span class="hslide__eyebrow">Modelo ' + product.number + '</span><h3>' + product.name + '</h3><p>' + product.description + '</p><span class="hslide__cta">Conheça</span></div>' +
+            '<div class="hslide__copy"><h3>' + product.name + '</h3><p>' + product.description + '</p><span class="hslide__cta">Conheça</span></div>' +
           '</a>' +
         '</article>'
       ).join('');
@@ -183,6 +186,55 @@
       const activeTimers = new Map();
       const completedTimers = new WeakSet();
       const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Fundo editorial: os três filmes dos relógios passam em sequência.
+      const club = document.querySelector('#universo');
+      const clubVideos = [...club.querySelectorAll('[data-club-video]')];
+      const clubFilms = [
+        ['assets/sanda-classic-film.mp4', 'assets/sanda-classic-film-poster.jpg'],
+        ['assets/sanda-signature-film.mp4', 'assets/sanda-signature-film-poster.jpg'],
+        ['assets/sanda-edition-film.mp4', 'assets/sanda-edition-film-poster.jpg']
+      ];
+      if (!reducedMotion) {
+        let activeFilm = 0;
+        let nextFilm = 2;
+        let clubVisible = false;
+        let changingFilm = false;
+        const advanceFilm = () => {
+          if (changingFilm || !clubVisible) return;
+          changingFilm = true;
+          const outgoing = clubVideos[activeFilm];
+          const incoming = clubVideos[1 - activeFilm];
+          const playback = incoming.play();
+          Promise.resolve(playback).then(() => {
+            incoming.classList.add('is-active');
+            outgoing.classList.remove('is-active');
+            activeFilm = 1 - activeFilm;
+            setTimeout(() => {
+              outgoing.pause();
+              outgoing.src = clubFilms[nextFilm][0];
+              outgoing.poster = clubFilms[nextFilm][1];
+              outgoing.load();
+              nextFilm = (nextFilm + 1) % clubFilms.length;
+              changingFilm = false;
+              if (!clubVisible) incoming.pause();
+            }, 850);
+          }).catch(() => { changingFilm = false; });
+        };
+        clubVideos.forEach((video, index) => video.addEventListener('ended', () => {
+          if (index === activeFilm) advanceFilm();
+        }));
+        new IntersectionObserver(([entry]) => {
+          clubVisible = entry.isIntersecting;
+          if (clubVisible) {
+            const playback = clubVideos[activeFilm].play();
+            if (playback && typeof playback.catch === 'function') playback.catch(() => {});
+          } else {
+            clubVideos.forEach((video) => video.pause());
+          }
+        }, { threshold: 0.15 }).observe(club);
+      }
+
 
       const stopTimer = (link) => {
         const timer = activeTimers.get(link);
