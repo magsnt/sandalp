@@ -69,7 +69,7 @@
       description: 'A expressão do aço prateado.',
       heroText: 'Caixa e pulseira em aço prateado para um visual inteiro em metal.',
       imageAlt: 'Steel Edition com pulseira em aço prateado',
-      images: [siteUrl('assets/sanda-edition.webp'), siteUrl('assets/porta-relogio-edition.png')],
+      images: [siteUrl('assets/sanda-edition.webp'), siteUrl('assets/steel-edition-luz-dramatica.png'), siteUrl('assets/steel-edition-macro-diagonal.png'), siteUrl('assets/steel-edition-macro-lateral.png'), siteUrl('assets/porta-relogio-edition.png')],
       caseImage: siteUrl('assets/porta-relogio-edition.png'),
       backImage: '',
       video: '',
