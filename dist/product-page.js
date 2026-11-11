@@ -87,6 +87,20 @@
     lifeTrack.scrollBy({ left: Number(button.dataset.life) * (card.offsetWidth + 14), behavior: 'smooth' });
   }));
 
+  // Carrossel automático perto do rodapé, só com fotos do modelo
+  const strip = document.querySelector('[data-strip]');
+  const stripImages = product.stripImages || [];
+  if (strip && stripImages.length) {
+    // Repete as fotos até preencher bem a largura e duplica o conjunto para o loop não ter emenda.
+    const set = [];
+    while (set.length < 8) set.push(...stripImages);
+    const slide = (src, hidden) => '<img src="' + src + '" alt="' + (hidden ? '' : product.imageAlt) + '" loading="lazy"' + (hidden ? ' aria-hidden="true"' : '') + '>';
+    strip.innerHTML = set.map((src, i) => slide(src, i >= stripImages.length)).join('') + set.map((src) => slide(src, true)).join('');
+    strip.style.setProperty('--strip-duration', (set.length * 6) + 's');
+  } else if (strip) {
+    strip.closest('.strip').hidden = true;
+  }
+
   // Por dentro
   const tabs = [
     ['Mostrador', 'Mostrador branco com algarismos romanos, trilho de minutos e ponteiros azulados. Uma leitura clássica, limpa e fácil de reconhecer.'],

@@ -332,8 +332,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .story{padding:100px var(--edge);text-align:center}
 .story__inner{max-width:640px;margin:auto}
 .story p{color:var(--muted);margin:0 0 16px}
-.strip{display:grid;grid-template-columns:repeat(5,1fr)}
-.strip img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.strip{overflow:hidden;background:#0b0c0d}
+.strip__track{display:flex;gap:4px;width:max-content;animation:strip-scroll var(--strip-duration,40s) linear infinite}
+.strip:hover .strip__track{animation-play-state:paused}
+.strip__track img{flex:none;height:clamp(300px,36vw,540px);width:auto;aspect-ratio:3/4;object-fit:cover}
+@keyframes strip-scroll{to{transform:translateX(calc(-50% - 2px))}}
 
 .sticky{position:fixed;z-index:50;left:0;right:0;bottom:0;background:#0b0c0d;color:#fff;padding:12px var(--edge);display:flex;justify-content:space-between;align-items:center;gap:20px;transform:translateY(110%);transition:transform .3s}
 .sticky.show{transform:none}
@@ -366,7 +369,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   .footer__grid{grid-template-columns:1fr 1fr}
   .footer__brand{grid-column:1/-1}
   .lcard{flex-basis:calc((100% - 14px)/2)}
-  .strip{grid-template-columns:repeat(3,1fr)}.strip img:nth-child(n+4){display:none}
+
   .edit__head{align-items:flex-start;flex-direction:column;gap:22px;margin-bottom:40px}
   .edit__grid{width:calc(100% + var(--edge));max-width:none;display:flex;overflow-x:auto;margin-right:calc(-1*var(--edge));padding-right:var(--edge);scroll-snap-type:x mandatory;scrollbar-width:none}
   .edit__grid::-webkit-scrollbar{display:none}
@@ -402,7 +405,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   .edit__copy{left:24px;right:24px;bottom:24px}
   .life__wrap .arrow{display:none}
   .tabs button{width:calc(50% - 5px)}
-  .strip{grid-template-columns:repeat(2,1fr)}.strip img:nth-child(n+3){display:none}
+  .strip__track img{height:380px}
   .club form,.track-form{flex-direction:column}
   .club form{padding:10px;border-radius:22px}
   .club form .btn{width:100%}
@@ -413,4 +416,4 @@ button{font:inherit;color:inherit;cursor:pointer}
   .cine__media--product{object-position:50% 22%;padding:9vh 8vw 32vh}
   .cine--signature::after{background:linear-gradient(180deg,#2a1b1200 20%,#2a1b12d9 72%,#2a1b12f2 100%)}
 }
-@media(prefers-reduced-motion:reduce){.club__media video{transition:none}.demand__bar span::after{animation:none}html{scroll-behavior:auto}.topbar__track{animation:none}*,*::before,*::after{transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){.club__media video{transition:none}.demand__bar span::after{animation:none}html{scroll-behavior:auto}.topbar__track,.strip__track{animation:none}*,*::before,*::after{transition-duration:.01ms!important}}
