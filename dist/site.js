@@ -7,7 +7,7 @@
   const overlay = body.dataset.header === 'overlay';
   const offers = ['Frete grátis para todo o país', 'Até 3x sem juros', '10% OFF na primeira compra'];
   const group = (hidden) => '<div class="topbar__group"' + (hidden ? ' aria-hidden="true"' : '') + '>' + offers.map((offer) => '<span>' + offer + '</span>').join('') + '</div>';
-  const modelCard = (product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><strong>' + product.name + '</strong><small>' + store.formatPrice(product.price) + '</small></a>';
+  const modelCard = (product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + (product.cutout || product.images[0]) + '" alt="" loading="lazy"></figure><strong>' + product.name + '</strong><small>' + store.formatPrice(product.price) + '</small></a>';
 
   const chrome = document.createElement('div');
   chrome.innerHTML =
@@ -23,7 +23,7 @@
     '</header>' +
     '<nav class="drawer" id="drawer" aria-label="Menu">' +
       '<span class="eyebrow drawer__label">Relógios</span>' +
-      '<div class="drawer__models">' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + product.images[0] + '" alt="" loading="lazy"></figure><span>' + product.name + '</span></a>').join('') + '</div>' +
+      '<div class="drawer__models">' + store.products.map((product) => '<a href="' + url('products/' + product.slug + '/') + '"><figure><img src="' + (product.cutout || product.images[0]) + '" alt="" loading="lazy"></figure><span>' + product.name + '</span></a>').join('') + '</div>' +
       '<a href="' + url('#colecao') + '">Coleção</a><a href="' + url('historia/') + '">História</a><a href="' + url('#sobre') + '">Sobre nós</a><a href="' + url('rastreio/') + '">Rastreio</a>' +
     '</nav>';
   body.prepend(...chrome.children);

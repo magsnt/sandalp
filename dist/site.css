@@ -417,3 +417,4 @@ button{font:inherit;color:inherit;cursor:pointer}
   .cine--signature::after{background:linear-gradient(180deg,#2a1b1200 20%,#2a1b12d9 72%,#2a1b12f2 100%)}
 }
 @media(prefers-reduced-motion:reduce){.club__media video{transition:none}.demand__bar span::after{animation:none}html{scroll-behavior:auto}.topbar__track,.strip__track{animation:none}*,*::before,*::after{transition-duration:.01ms!important}}
+.gallery__stage>img.wide{object-fit:contain;background:linear-gradient(180deg,#d9dde1,#9aa1a8)}

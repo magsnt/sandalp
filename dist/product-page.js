@@ -6,6 +6,8 @@
   const product = store.products.find((item) => item.slug === slug) || store.products[0];
   const checkoutUrl = store.buildCheckoutUrl(product.checkoutUrl);
   const isCutout = (src) => /\/sanda-(classic|signature|edition)\.webp$/.test(src);
+  // Fotos panorâmicas (vista lateral) aparecem inteiras, sem corte.
+  const isWide = (src) => /\/produtos\/[a-z]+-3\.webp$/.test(src);
 
   const values = {
     name: product.name,
@@ -28,7 +30,7 @@
     element.textContent = values[element.dataset.p] || '';
   });
   document.querySelector('[data-case-image]').src = product.caseImage;
-  document.querySelector('[data-review-image]').src = product.images[0];
+  document.querySelector('[data-review-image]').src = product.cutout || product.images[0];
   document.title = product.name + ' | Sanda Brasil';
   document.querySelector('meta[name="description"]').content = product.name + ': ' + product.description + ' Frete grátis para todo o país, até 3x sem juros e checkout seguro.';
 
@@ -42,9 +44,10 @@
     stage.src = src;
     stage.alt = src === product.caseImage ? 'Porta-relógio com interior em veludo e ' + product.name : product.imageAlt + (current ? ' · imagem ' + (current + 1) : '');
     stage.classList.toggle('contain', isCutout(src));
+    stage.classList.toggle('wide', isWide(src));
     thumbs.querySelectorAll('button').forEach((button, i) => button.classList.toggle('active', i === current));
   };
-  thumbs.innerHTML = product.images.map((src, i) => '<button type="button" class="' + (isCutout(src) ? 'contain' : '') + '" aria-label="' + (src === product.caseImage ? 'Ver porta-relógio em veludo' : 'Ver imagem ' + (i + 1)) + '"><img src="' + src + '" alt="" loading="lazy"></button>').join('');
+  thumbs.innerHTML = product.images.map((src, i) => '<button type="button" class="' + (isCutout(src) ? 'contain' : isWide(src) ? 'wide' : '') + '" aria-label="' + (src === product.caseImage ? 'Ver porta-relógio em veludo' : 'Ver imagem ' + (i + 1)) + '"><img src="' + src + '" alt="" loading="lazy"></button>').join('');
   thumbs.querySelectorAll('button').forEach((button, i) => button.addEventListener('click', () => show(i)));
   document.querySelectorAll('[data-step]').forEach((button) => {
     button.hidden = product.images.length < 2;
@@ -73,7 +76,7 @@
   // Modelos
   document.querySelector('[data-swatches]').innerHTML = store.products.map((item) =>
     '<a class="swatch' + (item.slug === product.slug ? ' active' : '') + '" href="' + store.url('products/' + item.slug + '/') + '"' + (item.slug === product.slug ? ' aria-current="page"' : '') + '>' +
-    '<figure><img src="' + item.images[0] + '" alt="" loading="lazy"></figure><span>' + item.name + '</span></a>'
+    '<figure><img src="' + (item.cutout || item.images[0]) + '" alt="" loading="lazy"></figure><span>' + item.name + '</span></a>'
   ).join('');
 
   // Universo

@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="site.css?v=20261110-4">
+  <link rel="stylesheet" href="site.css?v=20261110-5">
 </head>
 <body data-header="overlay" class="home-reference">
   <div class="intro" data-intro role="dialog" aria-modal="true" aria-label="Apresentação da marca Sanda">
@@ -150,7 +150,7 @@
     </section>
   </main>
 
-  <script src="store-config.js?v=20261110-4"></script>
+  <script src="store-config.js?v=20261110-5"></script>
   <script src="site.js"></script>
   <script>
     (function () {
@@ -160,7 +160,7 @@
       track.innerHTML = store.products.map((product, index) =>
         '<article class="hslide" data-highlight-index="' + index + '">' +
           '<a class="hslide__link" href="' + store.url('products/' + product.slug + '/') + '">' +
-            '<div class="hslide__visual"><img class="hslide__shadow" src="' + product.images[0] + '" alt="" loading="lazy"><img class="hslide__watch" src="' + product.images[0] + '" alt="' + product.imageAlt + '" loading="lazy"></div>' +
+            '<div class="hslide__visual"><img class="hslide__shadow" src="' + (product.cutout || product.images[0]) + '" alt="" loading="lazy"><img class="hslide__watch" src="' + (product.cutout || product.images[0]) + '" alt="' + product.imageAlt + '" loading="lazy"></div>' +
             '<div class="hslide__copy"><h3>' + product.name + '</h3><p>' + product.description + '</p><span class="hslide__cta">Conheça</span></div>' +
           '</a>' +
         '</article>'
