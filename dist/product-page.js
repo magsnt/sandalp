@@ -44,7 +44,7 @@
     stage.classList.toggle('contain', isCutout(src));
     thumbs.querySelectorAll('button').forEach((button, i) => button.classList.toggle('active', i === current));
   };
-  thumbs.innerHTML = product.images.map((src, i) => '<button type="button" class="' + (isCutout(src) ? 'contain' : '') + '" aria-label="' + (src === product.caseImage ? 'Ver porta-relógio em veludo' : 'Ver imagem ' + (i + 1)) + '"><img src="' + src + '" alt=""></button>').join('');
+  thumbs.innerHTML = product.images.map((src, i) => '<button type="button" class="' + (isCutout(src) ? 'contain' : '') + '" aria-label="' + (src === product.caseImage ? 'Ver porta-relógio em veludo' : 'Ver imagem ' + (i + 1)) + '"><img src="' + src + '" alt="" loading="lazy"></button>').join('');
   thumbs.querySelectorAll('button').forEach((button, i) => button.addEventListener('click', () => show(i)));
   document.querySelectorAll('[data-step]').forEach((button) => {
     button.hidden = product.images.length < 2;
@@ -78,7 +78,8 @@
 
   // Universo
   const lifeTrack = document.querySelector('[data-life-track]');
-  lifeTrack.innerHTML = store.universeImages.map((item) =>
+  const lifeImages = product.universeImages || store.universeImages;
+  lifeTrack.innerHTML = lifeImages.map((item) =>
     '<figure class="lcard"><img src="' + item.src + '" alt="" loading="lazy"><figcaption><strong>' + item.title + '</strong><span>' + item.text + '</span></figcaption></figure>'
   ).join('');
   document.querySelectorAll('[data-life]').forEach((button) => button.addEventListener('click', () => {

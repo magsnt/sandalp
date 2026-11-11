@@ -4,6 +4,7 @@
   const scriptUrl = document.currentScript && document.currentScript.src;
   const siteRoot = scriptUrl ? new URL('.', scriptUrl) : new URL('./', window.location.href);
   const siteUrl = (path) => new URL(String(path).replace(/^\//, ''), siteRoot).toString();
+  const editorial = (name) => siteUrl('assets/editorial/' + name + '.webp');
 
   // Fotos de estilo de vida disponíveis hoje mostram o modelo Classic.
   const universeImages = [
@@ -23,9 +24,9 @@
       description: 'O clássico em couro preto.',
       heroText: 'Caixa retangular em aço polido, mostrador com algarismos romanos e pulseira em couro preto.',
       imageAlt: 'Classic com pulseira preta',
-      images: [siteUrl('assets/sanda-classic.webp'), siteUrl('assets/book-04.webp'), siteUrl('assets/book-02.webp'), siteUrl('assets/porta-relogio-classic.png')],
-      caseImage: siteUrl('assets/porta-relogio-classic.png'),
-      backImage: siteUrl('assets/book-02.webp'),
+      images: [siteUrl('assets/sanda-classic.webp'), editorial('classic-20'), editorial('classic-04'), editorial('classic-18'), editorial('classic-37'), editorial('classic-15'), editorial('classic-02'), editorial('classic-39'), editorial('classic-08')],
+      caseImage: editorial('classic-08'),
+      backImage: editorial('classic-04'),
       video: siteUrl('assets/hero-film.mp4'),
       strap: 'Couro preto',
       editorialTitle: 'A elegância não pede licença.',
@@ -34,6 +35,17 @@
       universeTitle: 'O clássico, no seu ritmo.',
       universeText: 'Da primeira reunião ao último brinde. Um relógio para acompanhar o dia inteiro sem pedir atenção, só presença.',
       universeNote: '',
+      universeImages: [
+        { src: editorial('classic-10'), title: 'Contraste absoluto', text: 'Couro preto e linhas precisas em uma composição essencial.' },
+        { src: editorial('classic-11'), title: 'Código clássico', text: 'Uma presença limpa para acompanhar a alfaiataria.' },
+        { src: editorial('classic-13'), title: 'Entre luz e movimento', text: 'O Classic atravessa cenários sem perder a discrição.' },
+        { src: editorial('classic-28'), title: 'Depois do último brinde', text: 'Uma assinatura que permanece do jantar ao fim da noite.' },
+        { src: editorial('classic-32'), title: 'Ritmo urbano', text: 'Textura e sobriedade para os momentos cotidianos.' },
+        { src: editorial('classic-33'), title: 'Presença em cena', text: 'O detalhe certo, sem disputar atenção.' },
+        { src: editorial('classic-34'), title: 'No gesto', text: 'A caixa retangular encontra o couro preto.' },
+        { src: editorial('classic-36'), title: 'À beira d’água', text: 'Elegância que acompanha cada deslocamento.' },
+        { src: editorial('classic-38'), title: 'Pronto para partir', text: 'Um clássico pensado para diferentes ritmos.' }
+      ],
       price: 899,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/J04KTX1Z9G'
     },
@@ -46,9 +58,9 @@
       description: 'O equilíbrio do couro marrom.',
       heroText: 'O mesmo desenho retangular, agora com o calor do couro marrom.',
       imageAlt: 'Signature com pulseira marrom',
-      images: [siteUrl('assets/sanda-signature.webp'), siteUrl('assets/porta-relogio-signature.png')],
-      caseImage: siteUrl('assets/porta-relogio-signature.png'),
-      backImage: '',
+      images: [siteUrl('assets/sanda-signature.webp'), editorial('signature-30'), editorial('signature-07'), editorial('signature-31'), editorial('signature-42'), editorial('signature-06')],
+      caseImage: editorial('signature-06'),
+      backImage: editorial('signature-30'),
       video: '',
       strap: 'Couro marrom',
       editorialTitle: 'Presença em seu próprio ritmo.',
@@ -56,7 +68,14 @@
       strapDetail: 'Pulseira em couro marrom com acabamento texturizado, que traz calor ao desenho.',
       universeTitle: 'Um universo, três expressões.',
       universeText: 'O Signature divide com toda a coleção o desenho retangular e o mostrador clássico. Muda a pulseira, fica a presença.',
-      universeNote: 'Imagens do universo Sanda com o modelo Classic.',
+      universeNote: '',
+      universeImages: [
+        { src: editorial('signature-01'), title: 'Em movimento', text: 'O couro marrom em uma leitura leve e contemporânea.' },
+        { src: editorial('signature-14'), title: 'Calor e textura', text: 'Tons naturais para uma presença acolhedora.' },
+        { src: editorial('signature-16'), title: 'Assinatura pessoal', text: 'Uma escolha marcante vista de qualquer ângulo.' },
+        { src: editorial('signature-22'), title: 'Elegância natural', text: 'Do encontro casual às ocasiões que pedem mais.' },
+        { src: editorial('signature-40'), title: 'Entre compromissos', text: 'Versatilidade para acompanhar o dia inteiro.' }
+      ],
       price: 949,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/37NE7BRJKB'
     },
@@ -69,9 +88,9 @@
       description: 'A expressão do aço prateado.',
       heroText: 'Caixa e pulseira em aço prateado para um visual inteiro em metal.',
       imageAlt: 'Steel Edition com pulseira em aço prateado',
-      images: [siteUrl('assets/sanda-edition.webp'), siteUrl('assets/steel-edition-luz-dramatica.png'), siteUrl('assets/steel-edition-macro-diagonal.png'), siteUrl('assets/steel-edition-macro-lateral.png'), siteUrl('assets/porta-relogio-edition.png')],
-      caseImage: siteUrl('assets/porta-relogio-edition.png'),
-      backImage: '',
+      images: [siteUrl('assets/sanda-edition.webp'), editorial('steel-05'), editorial('steel-12'), editorial('steel-35'), editorial('steel-27'), editorial('steel-09'), siteUrl('assets/steel-edition-macro-diagonal.png'), siteUrl('assets/steel-edition-macro-lateral.png')],
+      caseImage: editorial('steel-09'),
+      backImage: editorial('steel-12'),
       video: '',
       strap: 'Aço prateado',
       editorialTitle: 'O tempo ganha outra presença.',
@@ -79,7 +98,15 @@
       strapDetail: 'Pulseira em elos de aço prateado, no mesmo tom da caixa, para um visual inteiro em metal.',
       universeTitle: 'Um universo, três expressões.',
       universeText: 'O Steel Edition leva o desenho da coleção para o metal. Muda a pulseira, fica a presença.',
-      universeNote: 'Imagens do universo Sanda com o modelo Classic.',
+      universeNote: '',
+      universeImages: [
+        { src: editorial('steel-03'), title: 'Força contemporânea', text: 'A presença do aço em uma composição de moda.' },
+        { src: editorial('steel-17'), title: 'Aço e alfaiataria', text: 'Um acabamento integral para ocasiões distintas.' },
+        { src: editorial('steel-19'), title: 'Estratégia no detalhe', text: 'Linhas clássicas em uma leitura inteiramente metálica.' },
+        { src: editorial('steel-21'), title: 'Presença formal', text: 'O brilho discreto do aço sob luz baixa.' },
+        { src: editorial('steel-25'), title: 'Luz do dia', text: 'Aço polido para acompanhar momentos cotidianos.' },
+        { src: editorial('steel-45'), title: 'Aço no seu ritmo', text: 'Uma expressão versátil, limpa e marcante.' }
+      ],
       price: 1099,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/6DI4WBX8G1'
     }
