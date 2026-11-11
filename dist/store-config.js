@@ -48,7 +48,7 @@
         { src: editorial('classic-36'), title: 'À beira d’água', text: 'Elegância que acompanha cada deslocamento.' },
         { src: editorial('classic-38'), title: 'Pronto para partir', text: 'Um clássico pensado para diferentes ritmos.' }
       ],
-      price: 899,
+      price: 447.90,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/J04KTX1Z9G'
     },
     {
@@ -80,7 +80,7 @@
         { src: editorial('signature-22'), title: 'Elegância natural', text: 'Do encontro casual às ocasiões que pedem mais.' },
         { src: editorial('signature-40'), title: 'Entre compromissos', text: 'Versatilidade para acompanhar o dia inteiro.' }
       ],
-      price: 949,
+      price: 447.90,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/37NE7BRJKB'
     },
     {
@@ -113,7 +113,7 @@
         { src: editorial('steel-25'), title: 'Luz do dia', text: 'Aço polido para acompanhar momentos cotidianos.' },
         { src: editorial('steel-45'), title: 'Aço no seu ritmo', text: 'Uma expressão versátil, limpa e marcante.' }
       ],
-      price: 1099,
+      price: 497.90,
       checkoutUrl: 'https://sanda-brasil.pay.yampi.com.br/r/6DI4WBX8G1'
     }
   ];
