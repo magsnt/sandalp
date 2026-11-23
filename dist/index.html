@@ -23,64 +23,60 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="site.css?v=20261110-6">
+  <link rel="stylesheet" href="site.css?v=20261123-1">
 </head>
 <body data-header="overlay" class="home-reference">
   <div class="intro" data-intro role="dialog" aria-modal="true" aria-label="Apresentação da marca Sanda">
     <video class="intro__film" src="assets/sanda-intro.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
   </div>
   <main>
-    <section class="ct" aria-labelledby="cine-classic">
-      <div class="cine">
-        <video class="cine__media" src="assets/sanda-classic-film.mp4" poster="assets/sanda-classic-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
-        <div class="cine__inner">
-          <span class="cine__tag">Coleção inaugural · Couro preto</span>
-          <h1 class="cine__title" id="cine-classic">Classic</h1>
-          <p class="cine__sub">Para quem sabe que presença não precisa de excesso. Linhas retas, mostrador clássico e couro preto.</p>
-          <div class="cine__actions">
-            <a class="btn btn--light" href="products/classic/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+    <section class="model-carousel" data-model-carousel aria-label="Coleção inaugural Sanda" aria-roledescription="carrossel" tabindex="0">
+      <div class="model-carousel__viewport">
+        <div class="model-carousel__track" data-model-track>
+          <article class="model-slide is-active" data-model-slide aria-labelledby="cine-classic">
+            <video class="cine__media" src="assets/sanda-classic-film.mp4" poster="assets/sanda-classic-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+            <div class="cine__inner">
+              <span class="cine__tag">Coleção inaugural · Couro preto</span>
+              <h1 class="cine__title" id="cine-classic">Classic</h1>
+              <p class="cine__sub">Para quem sabe que presença não precisa de excesso. Linhas retas, mostrador clássico e couro preto.</p>
+              <div class="cine__actions">
+                <a class="btn btn--light" href="products/classic/">Conheça</a>
+              </div>
+            </div>
+          </article>
+          <article class="model-slide cine--signature" id="signature" data-model-slide aria-labelledby="cine-signature">
+            <video class="cine__media" src="assets/sanda-signature-film.mp4" poster="assets/sanda-signature-film-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+            <div class="cine__inner">
+              <span class="cine__tag">Coleção inaugural · Couro marrom</span>
+              <h2 class="cine__title" id="cine-signature">Signature</h2>
+              <p class="cine__sub">A mesma assinatura retangular, agora com o calor e a textura do couro marrom.</p>
+              <div class="cine__actions">
+                <a class="btn btn--light" href="products/signature/">Conheça</a>
+              </div>
+            </div>
+          </article>
+          <article class="model-slide cine--edition" id="edition" data-model-slide aria-labelledby="cine-edition">
+            <video class="cine__media" src="assets/sanda-edition-film.mp4" poster="assets/sanda-edition-film-poster.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+            <div class="cine__inner">
+              <span class="cine__tag">Coleção inaugural · Aço prateado</span>
+              <h2 class="cine__title" id="cine-edition">Steel Edition</h2>
+              <p class="cine__sub">A força do aço em uma composição limpa e marcante, com caixa e pulseira inteiras em metal.</p>
+              <div class="cine__actions">
+                <a class="btn btn--light" href="products/edition/">Conheça</a>
+              </div>
+            </div>
+          </article>
         </div>
-        <a class="cine__scroll" href="#signature" data-auto-scroll="#signature" data-delay="5000" aria-label="Ir para o próximo destaque. Avanço automático em 5 segundos">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="cine__scroll-track" cx="24" cy="24" r="22" pathLength="100"/><circle class="cine__scroll-progress" cx="24" cy="24" r="22" pathLength="100"/></svg>
-          <span class="cine__scroll-center" aria-hidden="true"><span class="cine__scroll-count" data-countdown>5</span><span class="cine__scroll-arrow">↓</span></span>
-        </a>
       </div>
-    </section>
-
-    <section class="ct" id="signature" aria-labelledby="cine-signature">
-      <div class="cine cine--signature">
-        <video class="cine__media" src="assets/sanda-signature-film.mp4" poster="assets/sanda-signature-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
-        <div class="cine__inner">
-          <span class="cine__tag">Coleção inaugural · Couro marrom</span>
-          <h2 class="cine__title" id="cine-signature">Signature</h2>
-          <p class="cine__sub">A mesma assinatura retangular, agora com o calor e a textura do couro marrom.</p>
-          <div class="cine__actions">
-            <a class="btn btn--light" href="products/signature/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
+      <div class="model-carousel__controls">
+        <button class="model-carousel__step" type="button" data-model-prev aria-label="Exibir modelo anterior">Anterior</button>
+        <div class="model-carousel__dots" role="group" aria-label="Escolher modelo">
+          <button class="is-active" type="button" data-model-dot="0" aria-label="Exibir Classic" aria-current="true"></button>
+          <button type="button" data-model-dot="1" aria-label="Exibir Signature"></button>
+          <button type="button" data-model-dot="2" aria-label="Exibir Steel Edition"></button>
         </div>
-        <a class="cine__scroll" href="#edition" data-auto-scroll="#edition" data-delay="5000" aria-label="Ir para o próximo destaque. Avanço automático em 5 segundos">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="cine__scroll-track" cx="24" cy="24" r="22" pathLength="100"/><circle class="cine__scroll-progress" cx="24" cy="24" r="22" pathLength="100"/></svg>
-          <span class="cine__scroll-center" aria-hidden="true"><span class="cine__scroll-count" data-countdown>5</span><span class="cine__scroll-arrow">↓</span></span>
-        </a>
-      </div>
-    </section>
-
-    <section class="ct" id="edition" aria-labelledby="cine-edition">
-      <div class="cine cine--edition">
-        <video class="cine__media" src="assets/sanda-edition-film.mp4" poster="assets/sanda-edition-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
-        <div class="cine__inner">
-          <span class="cine__tag">Coleção inaugural · Aço prateado</span>
-          <h2 class="cine__title" id="cine-edition">Steel Edition</h2>
-          <p class="cine__sub">A força do aço em uma composição limpa e marcante, com caixa e pulseira inteiras em metal.</p>
-          <div class="cine__actions">
-            <a class="btn btn--light" href="products/edition/">Conheça <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-        <a class="cine__scroll" href="#colecao" data-auto-scroll="#colecao" data-delay="5000" aria-label="Ir para a coleção. Avanço automático em 5 segundos">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="cine__scroll-track" cx="24" cy="24" r="22" pathLength="100"/><circle class="cine__scroll-progress" cx="24" cy="24" r="22" pathLength="100"/></svg>
-          <span class="cine__scroll-center" aria-hidden="true"><span class="cine__scroll-count" data-countdown>5</span><span class="cine__scroll-arrow">↓</span></span>
-        </a>
+        <span class="model-carousel__counter" aria-live="polite"><b data-model-current>01</b> / 03</span>
+        <button class="model-carousel__step" type="button" data-model-next aria-label="Exibir próximo modelo">Próximo</button>
       </div>
     </section>
 
@@ -155,6 +151,86 @@
   <script>
     (function () {
       const store = window.SANDA_STORE;
+      const modelCarousel = document.querySelector('[data-model-carousel]');
+      const modelTrack = modelCarousel.querySelector('[data-model-track]');
+      const modelSlides = [...modelCarousel.querySelectorAll('[data-model-slide]')];
+      const modelDots = [...modelCarousel.querySelectorAll('[data-model-dot]')];
+      const modelCurrent = modelCarousel.querySelector('[data-model-current]');
+      const modelReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let activeModel = 0;
+      let modelTimer = 0;
+      let modelTouchStartX = 0;
+
+      const stopModelTimer = () => {
+        clearTimeout(modelTimer);
+        modelTimer = 0;
+      };
+      const scheduleModelTimer = () => {
+        stopModelTimer();
+        if (
+          !modelReducedMotion &&
+          !document.hidden &&
+          !document.documentElement.classList.contains('intro-pending') &&
+          !modelCarousel.contains(document.activeElement) &&
+          !modelCarousel.matches(':hover')
+        ) {
+          modelTimer = setTimeout(() => showModel(activeModel + 1), 6500);
+        }
+      };
+      const showModel = (nextIndex, userInitiated) => {
+        activeModel = (nextIndex + modelSlides.length) % modelSlides.length;
+        modelTrack.style.transform = 'translate3d(-' + (activeModel * 100) + '%,0,0)';
+        modelCurrent.textContent = String(activeModel + 1).padStart(2, '0');
+        modelSlides.forEach((slide, index) => {
+          const active = index === activeModel;
+          slide.classList.toggle('is-active', active);
+          slide.setAttribute('aria-hidden', String(!active));
+          slide.querySelectorAll('a,button').forEach((control) => { control.tabIndex = active ? 0 : -1; });
+          const video = slide.querySelector('video');
+          if (!video) return;
+          if (active) {
+            const playback = video.play();
+            if (playback && typeof playback.catch === 'function') playback.catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+        modelDots.forEach((dot, index) => {
+          const active = index === activeModel;
+          dot.classList.toggle('is-active', active);
+          if (active) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+        if (userInitiated) stopModelTimer();
+        scheduleModelTimer();
+      };
+
+      modelCarousel.querySelector('[data-model-prev]').addEventListener('click', () => showModel(activeModel - 1, true));
+      modelCarousel.querySelector('[data-model-next]').addEventListener('click', () => showModel(activeModel + 1, true));
+      modelDots.forEach((dot) => dot.addEventListener('click', () => showModel(Number(dot.dataset.modelDot), true)));
+      modelCarousel.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); showModel(activeModel - 1, true); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); showModel(activeModel + 1, true); }
+      });
+      modelCarousel.addEventListener('mouseenter', stopModelTimer);
+      modelCarousel.addEventListener('mouseleave', scheduleModelTimer);
+      modelCarousel.addEventListener('focusin', stopModelTimer);
+      modelCarousel.addEventListener('focusout', (event) => {
+        if (!modelCarousel.contains(event.relatedTarget)) scheduleModelTimer();
+      });
+      modelTrack.addEventListener('touchstart', (event) => {
+        modelTouchStartX = event.changedTouches[0].clientX;
+        stopModelTimer();
+      }, { passive: true });
+      modelTrack.addEventListener('touchend', (event) => {
+        const distance = event.changedTouches[0].clientX - modelTouchStartX;
+        if (Math.abs(distance) > 45) showModel(activeModel + (distance < 0 ? 1 : -1), true);
+        else scheduleModelTimer();
+      }, { passive: true });
+      document.addEventListener('visibilitychange', () => document.hidden ? stopModelTimer() : scheduleModelTimer());
+      document.addEventListener('sanda:intro-complete', scheduleModelTimer, { once: true });
+      showModel(0);
+
       const track = document.querySelector('#coll-track');
       let activeHighlight = 0;
       track.innerHTML = store.products.map((product, index) =>

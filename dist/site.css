@@ -122,6 +122,27 @@ button{font:inherit;color:inherit;cursor:pointer}
 .cine__scroll-count{font-size:10px;font-weight:700;letter-spacing:.08em}
 .cine__scroll-arrow{font-size:14px}
 @keyframes cine-countdown{to{stroke-dashoffset:0}}
+
+/* Abertura: os três modelos compartilham um único carrossel horizontal */
+.model-carousel{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#101316;color:#fff}
+.model-carousel__viewport,.model-carousel__track,.model-slide{height:100%}
+.model-carousel__viewport{overflow:hidden}
+.model-carousel__track{display:flex;transition:transform .85s cubic-bezier(.65,0,.2,1);will-change:transform;touch-action:pan-y}
+.model-slide{position:relative;flex:0 0 100%;display:flex;align-items:flex-end;overflow:hidden;background:#101316}
+.model-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0000004d 0%,#0000 30%,#0000 45%,#000000b3 100%)}
+.model-slide .cine__inner{opacity:0;transform:translateY(24px);transition:opacity .45s ease,transform .65s cubic-bezier(.2,.65,.25,1)}
+.model-slide.is-active .cine__inner{opacity:1;transform:none;transition-delay:.32s}
+.model-carousel__controls{position:absolute;z-index:4;right:var(--edge);bottom:28px;display:flex;align-items:center;gap:18px}
+.model-carousel__step{min-height:38px;padding:0;border:0;border-bottom:1px solid #ffffff8c;background:transparent;color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:border-color .2s,opacity .2s}
+.model-carousel__step:hover{border-color:#fff}
+.model-carousel__dots{display:flex;align-items:center;gap:8px}
+.model-carousel__dots button{position:relative;width:34px;height:18px;padding:0;border:0;background:transparent}
+.model-carousel__dots button::before{content:'';position:absolute;left:0;right:0;top:8px;height:1px;background:#ffffff66}
+.model-carousel__dots button::after{content:'';position:absolute;left:0;top:8px;width:0;height:1px;background:#fff;transition:width .45s ease}
+.model-carousel__dots button.is-active::after{width:100%}
+.model-carousel__counter{min-width:48px;color:#ffffff9e;font-size:10px;letter-spacing:.12em}
+.model-carousel__counter b{color:#fff;font-weight:700}
+
 .cine--signature{background:#765b46}
 .cine--signature::after{background:linear-gradient(90deg,#2a1b12d9 0%,#2a1b1273 42%,#2a1b120d 72%)}
 .cine__wash{position:absolute;inset:0;background:radial-gradient(circle at 72% 45%,#e7d8c7 0 18%,#b3967d 48%,#765b46 100%)}
@@ -411,6 +432,11 @@ button{font:inherit;color:inherit;cursor:pointer}
   .club form .btn{width:100%}
   .footer__bottom{flex-direction:column}
   .sticky strong{font-size:12px}
+  .model-carousel{min-height:660px}
+  .model-slide .cine__inner{padding-bottom:142px}
+  .model-carousel__controls{left:var(--edge);right:var(--edge);bottom:24px;justify-content:space-between;gap:10px}
+  .model-carousel__step{font-size:9px}
+  .model-carousel__dots button{width:24px}
   .home-reference .cine__title{font-size:clamp(54px,18vw,78px)}
   .home-reference .cine__sub{font-size:14px;max-width:330px}
   .cine__media--product{object-position:50% 22%;padding:9vh 8vw 32vh}
